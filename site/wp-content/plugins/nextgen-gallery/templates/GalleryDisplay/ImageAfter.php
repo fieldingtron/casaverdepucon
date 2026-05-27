@@ -1,0 +1,7 @@
+<?php
+/**
+ * Template file
+ */
+
+?>
+</div>

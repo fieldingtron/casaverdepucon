@@ -1,0 +1,8 @@
+{
+	"config": {
+		"classmap-authoritative": true
+	},
+    "require": {
+        "lsolesen/pel": "0.9.12"
+    }
+}

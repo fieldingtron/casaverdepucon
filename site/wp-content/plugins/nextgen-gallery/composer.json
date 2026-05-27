@@ -1,0 +1,29 @@
+{
+	"name": "imagely/nextgen-gallery",
+	"version": "3.5.0",
+	"description": "The most popular gallery plugin for WordPress and one of the most popular plugins of all time with over 30 million downloads.",
+	"homepage": "https://www.imagely.com/",
+	"license": "GPLv2",
+	"type": "wordpress-plugin",
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "git@github.com:awesomemotive/pope-framework.git"
+		}
+	],
+	"require": {
+		"imagely/pope-framework": "v0.19",
+		"ezyang/htmlpurifier": "4.17.0"
+	},
+	"require-dev": {
+		"nikic/php-parser": "4.18.0",
+		"szepeviktor/phpstan-wordpress": "1.3.2",
+		"phpstan/extension-installer": "1.3.1",
+		"php-stubs/wp-cli-stubs": "2.9.0"
+	},
+	"config": {
+		"allow-plugins": {
+			"phpstan/extension-installer": true
+		}
+	}
+}

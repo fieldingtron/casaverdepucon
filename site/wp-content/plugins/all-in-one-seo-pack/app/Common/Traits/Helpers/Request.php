@@ -1,0 +1,117 @@
+<?php
+namespace AIOSEO\Plugin\Common\Traits\Helpers;
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * Parse the current request.
+ *
+ * @since 4.2.1
+ */
+trait Request {
+	/**
+	 * Get the server port.
+	 *
+	 * @since 4.2.1
+	 *
+	 * @return string The server port.
+	 */
+	private function getServerPort() {
+		if (
+			empty( $_SERVER['SERVER_PORT'] ) ||
+			80 === (int) $_SERVER['SERVER_PORT'] ||
+			443 === (int) $_SERVER['SERVER_PORT']
+		) {
+			return '';
+		}
+
+		return ':' . (int) $_SERVER['SERVER_PORT'];
+	}
+
+	/**
+	 * Get the protocol.
+	 *
+	 * @since 4.2.1
+	 *
+	 * @return string The protocol.
+	 */
+	private function getProtocol() {
+		return is_ssl() ? 'https' : 'http';
+	}
+
+	/**
+	 * Get the server name (from $_SERVER['SERVER_NAME]), or use the request name ($_SERVER['HTTP_HOST']) if not present.
+	 *
+	 * @since 4.2.1
+	 *
+	 * @return string The server name.
+	 */
+	private function getServerName() {
+		$host = $this->getRequestServerName();
+
+		if ( isset( $_SERVER['SERVER_NAME'] ) ) {
+			$host = sanitize_text_field( wp_unslash( $_SERVER['SERVER_NAME'] ) ); // phpcs:ignore HM.Security.ValidatedSanitizedInput.InputNotSanitized
+		}
+
+		return $host;
+	}
+
+	/**
+	 * Get the request server name (from $_SERVER['HTTP_HOST]).
+	 *
+	 * @since 4.2.1
+	 *
+	 * @return string The request server name.
+	 */
+	private function getRequestServerName() {
+		$host = '';
+
+		if ( isset( $_SERVER['HTTP_HOST'] ) ) {
+			$host = sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) );
+		}
+
+		return $host;
+	}
+
+	/**
+	 * Retrieve the request URL.
+	 *
+	 * @since 4.2.1
+	 *
+	 * @return string The request URL.
+	 */
+	public function getRequestUrl() {
+		$url = '';
+
+		if ( isset( $_SERVER['REQUEST_URI'] ) ) {
+			$url = sanitize_url( wp_unslash( $_SERVER['REQUEST_URI'] ) );
+		}
+
+		// Use the existing decodeUrl helper for proper non-Latin character handling
+		return aioseo()->helpers->decodeUrl( $url );
+	}
+
+	/**
+	 * Gets the LLMs URL if accessible.
+	 *
+	 * @since 4.8.8
+	 *
+	 * @param  bool   $full Whether to get the full version URL.
+	 * @return array        The LLMs URL if accessible, null otherwise.
+	 */
+	public function getLlmsUrl( $full = false ) {
+		$file = aioseo()->llms->getFilePath( $full );
+
+		// Use `dirname` of `WP_CONTENT_URL` to match `dirname` of `WP_CONTENT_DIR` used for file path.
+		// This ensures compatibility with non-standard setups like Bedrock where `site_url()` differs from the document root.
+		$baseUrl = trailingslashit( dirname( content_url() ) );
+
+		return [
+			'url'          => $baseUrl . basename( $file ),
+			'isAccessible' => aioseo()->core->fs->exists( $file )
+		];
+	}
+}

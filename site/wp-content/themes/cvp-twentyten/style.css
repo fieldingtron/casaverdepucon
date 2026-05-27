@@ -1,0 +1,148 @@
+/*
+Theme Name: CVP Twenty Ten
+Template: twentyten
+Version: 1.0.0
+Description: Local responsive child theme for Casa Verde Pucon.
+*/
+
+body {
+	background: #7a4a22 url("/wp-content/uploads/2015/09/245734__texture-wallpaper-background-wood-board_p.jpg") center top / cover fixed no-repeat;
+}
+
+@media screen and (max-width: 980px) {
+	html,
+	body {
+		min-width: 0;
+		overflow-x: hidden;
+	}
+
+	body {
+		padding: 0;
+	}
+
+	#wrapper,
+	#branding,
+	#main,
+	#colophon,
+	#access {
+		box-sizing: border-box;
+		width: 100%;
+		max-width: 100%;
+	}
+
+	#wrapper {
+		margin: 0;
+	}
+
+	#site-title,
+	#site-description {
+		box-sizing: border-box;
+		margin-left: 18px;
+		margin-right: 18px;
+		width: auto;
+	}
+
+	#branding img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	#access {
+		float: none;
+		height: auto;
+		overflow: visible;
+	}
+
+	#access .menu-header,
+	#access div.menu,
+	#access .menu,
+	#access div.menu ul {
+		box-sizing: border-box;
+		margin: 0;
+		width: 100%;
+	}
+
+	#access .menu,
+	#access div.menu > ul {
+		display: flex;
+		flex-wrap: wrap;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+
+	#access .menu-header li,
+	#access div.menu li {
+		float: none;
+		flex: 0 0 auto;
+		position: relative;
+		width: auto;
+	}
+
+	#access a {
+		box-sizing: border-box;
+		display: block;
+		font-size: 12px;
+		height: 34px;
+		line-height: 34px;
+		padding: 0 7px;
+		width: auto;
+	}
+
+	#access ul ul {
+		box-shadow: none;
+		display: none;
+		float: none;
+		left: auto;
+		position: static;
+		top: auto;
+		width: 100%;
+	}
+
+	#access ul ul li,
+	#access ul ul a {
+		min-width: 0;
+		width: 100%;
+	}
+
+	#access ul ul a {
+		background: #1b1b1b;
+		padding-left: 32px;
+	}
+
+	#access ul ul ul a {
+		padding-left: 46px;
+	}
+
+	#container,
+	#content,
+	#primary,
+	#secondary,
+	#footer-widget-area .widget-area {
+		box-sizing: border-box;
+		float: none;
+		margin-left: 0;
+		margin-right: 0;
+		width: 100%;
+	}
+
+	#content,
+	#primary,
+	#secondary,
+	#footer-widget-area .widget-area {
+		padding-left: 18px;
+		padding-right: 18px;
+	}
+
+	#content img,
+	#content .wp-caption,
+	#content table,
+	.gallery img,
+	.ngg-galleryoverview img,
+	object,
+	embed,
+	video {
+		max-width: 100%;
+		height: auto;
+	}
+}

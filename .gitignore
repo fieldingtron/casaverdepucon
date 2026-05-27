@@ -1,0 +1,12 @@
+.DS_Store
+.env
+backups/
+artifacts/
+db/
+site/wp-content/cache/
+site/wp-content/upgrade/
+site/wp-content/wflogs/
+site/wp-content/uploads/aioseo-logs/
+site/wp-content/uploads/sucuri/
+*.sql
+*.sql.gz

@@ -1,0 +1,57 @@
+services:
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=caching_sha2_password
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${WORDPRESS_DB_NAME:-wordpress}
+      MYSQL_USER: ${WORDPRESS_DB_USER:-wordpress}
+      MYSQL_PASSWORD: ${WORDPRESS_DB_PASSWORD:-wordpress}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-wordpress_root}
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u$${MYSQL_USER} -p$${MYSQL_PASSWORD} --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  wordpress:
+    image: wordpress:php8.4-apache
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${WP_HTTP_PORT:-8083}:80"
+    environment:
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST:-db:3306}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME:-wordpress}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER:-wordpress}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD:-wordpress}
+      WP_HOME: ${WP_HOME:-http://localhost:8083}
+      WP_SITEURL: ${WP_SITEURL:-http://localhost:8083}
+      WP_ENVIRONMENT_TYPE: local
+      WORDPRESS_DEBUG: "0"
+    volumes:
+      - ./site:/var/www/html
+
+  wpcli:
+    image: wordpress:cli-php8.4
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST:-db:3306}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME:-wordpress}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER:-wordpress}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD:-wordpress}
+      WP_HOME: ${WP_HOME:-http://localhost:8083}
+      WP_SITEURL: ${WP_SITEURL:-http://localhost:8083}
+      WP_ENVIRONMENT_TYPE: local
+    volumes:
+      - ./site:/var/www/html
+    user: "33:33"
+
+volumes:
+  db_data:

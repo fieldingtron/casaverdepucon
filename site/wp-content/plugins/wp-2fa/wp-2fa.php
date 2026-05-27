@@ -1,0 +1,347 @@
+<?php
+/**
+ * WP 2FA - Two-factor authentication for WordPress .
+ *
+ * @copyright Copyright (C) 2013-2026, Melapress - support@melapress.com
+ * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License, version 3 or higher
+ *
+ * @wordpress-plugin
+ * Plugin Name: WP 2FA - Two-factor authentication for WordPress 
+ * Version:     3.1.1.2
+ * Plugin URI:  https://melapress.com/
+ * Description: Easily add an additional layer of security to your WordPress login pages. Enable Two-Factor Authentication for you and all your website users with this easy to use plugin.
+ * Author:      Melapress
+ * Author URI:  https://melapress.com/
+ * Text Domain: wp-2fa
+ * Domain Path: /languages/
+ * License:     GPL v3
+ * Requires at least: 5.5
+ * Requires PHP: 7.4
+ * Network: true
+ *
+ * @package WP2FA
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @fs_ignore /dist/, /extensions/, /freemius/, /includes/, /languages/, /third-party/, /vendor/
+ */
+
+use WP2FA\WP2FA;
+use WP2FA\Utils\Migration;
+use WP2FA\Admin\Setup_Wizard;
+use WP2FA\Admin\Helpers\WP_Helper;
+use WP2FA\Admin\Helpers\File_Writer;
+use WP2FA\Licensing\Licensing_Factory;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+if ( defined( '\DISABLE_2FA_LOGIN' ) && \DISABLE_2FA_LOGIN ) {
+	return;
+}
+
+// Useful global constants.
+if ( ! defined( 'WP_2FA_VERSION' ) ) {
+	define( 'WP_2FA_VERSION', '3.1.1.2' );
+	define( 'WP_2FA_BASE', plugin_basename( __FILE__ ) );
+	define( 'WP_2FA_URL', plugin_dir_url( __FILE__ ) );
+	define( 'WP_2FA_PATH', WP_PLUGIN_DIR . DIRECTORY_SEPARATOR . dirname( WP_2FA_BASE ) . DIRECTORY_SEPARATOR );
+	define( 'WP_2FA_INC', WP_2FA_PATH . 'includes/' );
+	define( 'WP_2FA_FILE', __FILE__ );
+	define( 'WP_2FA_LOGS_DIR', 'wp-2fa-logs' );
+
+	// Prefix used in usermetas, settings and transients.
+	define( 'WP_2FA_PREFIX', 'wp_2fa_' );
+	define( 'WP_2FA_POLICY_SETTINGS_NAME', WP_2FA_PREFIX . 'policy' );
+	define( 'WP_2FA_SETTINGS_NAME', WP_2FA_PREFIX . 'settings' );
+	define( 'WP_2FA_WHITE_LABEL_SETTINGS_NAME', WP_2FA_PREFIX . 'white_label' );
+	define( 'WP_2FA_PASSKEYS_SETTINGS_NAME', WP_2FA_PREFIX . 'passkeys' );
+	define( 'WP_2FA_EMAIL_SETTINGS_NAME', WP_2FA_PREFIX . 'email_settings' );
+
+	define( 'WP_2FA_PREFIX_PAGE', 'wp-2fa-' );
+
+	define( 'WP_2FA_TEXTDOMAIN', 'wp-2fa' );
+}
+
+require_once \plugin_dir_path( __FILE__ ) . 'class-plugin-deactivation.php';
+
+new WP2FA_Deactivation_Feedback_Server\Plugin_Deactivation();
+
+
+if ( ! function_exists( 'wp_2f_is_just_in_time_for_2fa_domain' ) ) {
+	/**
+	 * Whether it is the just_in_time_error for wp-2fa domains.
+	 *
+	 * @since 2.9.0
+	 *
+	 * @param string $status        Status of the error.
+	 * @param string $function_name Function name.
+	 * @param string $message       Message.
+	 *
+	 * @return bool
+	 */
+	function wp_2f_is_just_in_time_for_2fa_domain( $status, string $function_name, string $message ): bool {
+
+		return '_load_textdomain_just_in_time' === $function_name && strpos( $message, '<code>' . WP_2FA_TEXTDOMAIN ) !== false;
+	}
+}
+
+if ( ! function_exists( 'wp_2fa_trigger_error' ) ) {
+	/**
+	 * Catches errors which come from the doing_it_wrong() function, WP core does not provide much information about what is really going on and where, this method adds some more information to the error log.
+	 *
+	 * @param bool   $status - Whether to trigger the error for _doing_it_wrong() calls. Default true.
+	 * @param string $function_name - The name of the function that triggered the error (this is the WP function which is not called right, not the real function that actually called it).
+	 * @param string $errstr - The WP error string (message).
+	 * @param string $version - Since which WP version given error was added.
+	 * @param int    $errno - The number of the error (type of the error - that probably never get set by WP and always falls to the default which is E_USER_NOTICE).
+	 *
+	 * @return bool
+	 *
+	 * @since 2.9.0
+	 */
+	function wp_2fa_trigger_error( $status, string $function_name, $errstr, $version, $errno = E_USER_NOTICE ) {
+
+		if ( false === $status ) {
+			return $status;
+		}
+
+		if ( wp_2f_is_just_in_time_for_2fa_domain( '', $function_name, $errstr ) ) {
+			// This error code is not included in error_reporting, so let it fall.
+			// through to the standard PHP error handler.
+			return false;
+		}
+
+		return $status;
+	}
+}
+
+if ( ! function_exists( 'wp_2fa_action_doing_it_wrong_run' ) ) {
+	/**
+	 * Action for _doing_it_wrong() calls.
+	 *
+	 * @since 2.9.0
+	 *
+	 * @param string $function_name The function that was called.
+	 * @param string $message       A message explaining what has been done incorrectly.
+	 * @param string $version       The version of WordPress where the message was added.
+	 *
+	 * @return void
+	 */
+	function wp_2fa_action_doing_it_wrong_run( $function_name, $message, $version ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
+
+		global $wp_filter;
+
+		$function_name = (string) $function_name;
+		$message       = (string) $message;
+
+		if ( ! class_exists( '\QM_Collectors', false ) || ! wp_2f_is_just_in_time_for_2fa_domain( '', $function_name, $message ) ) {
+			return;
+		}
+
+		$qm_collector_doing_it_wrong = \QM_Collectors::get( 'doing_it_wrong' );
+		$current_priority            = $wp_filter['doing_it_wrong_run']->current_priority();
+
+		if ( null === $qm_collector_doing_it_wrong || false === $current_priority ) {
+			return;
+		}
+
+		switch ( $current_priority ) {
+			case 0:
+				\remove_action( 'doing_it_wrong_run', array( $qm_collector_doing_it_wrong, 'action_doing_it_wrong_run' ) );
+				break;
+
+			case 20:
+				\add_action( 'doing_it_wrong_run', array( $qm_collector_doing_it_wrong, 'action_doing_it_wrong_run' ), 10, 3 );
+				break;
+
+			default:
+				break;
+		}
+	}
+}
+
+\add_action( 'doing_it_wrong_trigger_error', 'wp_2fa_trigger_error', 0, 4 );
+
+\add_action( 'aadvana_trigger_error_doing_it_wrong', 'wp_2fa_trigger_error', 0, 4 );
+
+\add_action( 'doing_it_wrong_run', 'wp_2fa_action_doing_it_wrong_run', 0, 3 );
+\add_action( 'doing_it_wrong_run', 'wp_2fa_action_doing_it_wrong_run', 20, 3 );
+
+// Require Composer autoloader if it exists.
+if ( file_exists( WP_2FA_PATH . 'vendor/autoload.php' ) ) {
+	require_once WP_2FA_PATH . 'vendor/autoload.php';
+} else {
+	// Composer autoloader is required.
+	\wp_die( \esc_html__( 'The required libraries for WP 2FA are missing. Please reinstall the plugin.', 'wp-2fa' ) );
+}
+
+if ( ! class_exists( '\WP2FA\Licensing\Licensing_Factory' ) ) {
+	return;
+}
+
+Licensing_Factory::init();
+Licensing_Factory::provider_call( 'set_basename', true, __FILE__ );
+if ( null !== Licensing_Factory::get_provider() ) {
+	Licensing_Factory::get_provider()::add_action( 'after_uninstall', '\WP2FA\Core\uninstall' );
+}
+require_once WP_2FA_INC . 'functions/core.php';
+
+// run any required update routines.
+Migration::migrate();
+
+// Setup_Wizard.
+if ( WP_Helper::is_multisite() ) {
+	\add_action( 'network_admin_menu', array( Setup_Wizard::class, 'network_admin_menus' ), 10 );
+	\add_action( 'admin_menu', array( Setup_Wizard::class, 'admin_menus' ), 10 );
+} else {
+	\add_action( 'admin_menu', array( Setup_Wizard::class, 'admin_menus' ), 10 );
+}
+
+// Activation/Deactivation.
+\register_activation_hook( WP_2FA_FILE, '\WP2FA\Core\activate' );
+\register_deactivation_hook( WP_2FA_FILE, '\WP2FA\Core\deactivate' );
+// Register our uninstallation hook.
+\register_uninstall_hook( WP_2FA_FILE, '\WP2FA\Core\uninstall' );
+
+\add_filter( 'plugins_loaded', array( WP2FA::class, 'init' ) );
+\add_action( 'plugins_loaded', array( WP2FA::class, 'add_wizard_actions' ), 10 );
+
+// Include files.
+// require_once WP_2FA_INC . 'functions/core.php';
+
+// Require Composer autoloader if it exists.
+// if ( file_exists( WP_2FA_PATH . 'vendor/autoload.php' ) ) {
+// require_once WP_2FA_PATH . 'vendor/autoload.php';
+// }
+
+// run any required update routines.
+// Migration::migrate();
+
+// Setup_Wizard.
+// if ( WP_Helper::is_multisite() ) {
+// \add_action( 'network_admin_menu', array( Setup_Wizard::class, 'network_admin_menus' ), 10 );
+// \add_action( 'admin_menu', array( Setup_Wizard::class, 'admin_menus' ), 10 );
+// } else {
+// \add_action( 'admin_menu', array( Setup_Wizard::class, 'admin_menus' ), 10 );
+// }
+
+// Activation/Deactivation.
+// \register_activation_hook( WP_2FA_FILE, '\WP2FA\Core\activate' );
+// \register_deactivation_hook( WP_2FA_FILE, '\WP2FA\Core\deactivate' );
+// Register our uninstallation hook.
+// \register_uninstall_hook( WP_2FA_FILE, '\WP2FA\Core\uninstall' );
+
+// \add_filter( 'plugins_loaded', array( WP2FA::class, 'init' ) );
+// \add_action( 'plugins_loaded', array( WP2FA::class, 'add_wizard_actions' ), 10 );
+
+
+
+if ( ! defined( File_Writer::SECRET_NAME ) ) {
+	define( File_Writer::SECRET_NAME, WP2FA::get_secret_key() );
+
+	define( 'WP2FA_SECRET_IS_IN_DB', true );
+}
+
+// @free:start
+if ( ! function_exists( 'wp2fa_free_on_plugin_activation' ) ) {
+	/**
+	 * Takes care of deactivation of the premium plugin when the free plugin is activated.
+	 *
+	 * Note: This code MUST NOT be present in the premium version an is removed automatically during the build process.
+	 *
+	 * @since 2.0.0
+	 */
+	function wp2fa_free_on_plugin_activation() {
+		$premium_version_slug = 'wp-2fa-premium/wp-2fa.php';
+		if ( is_plugin_active( $premium_version_slug ) ) {
+			deactivate_plugins( $premium_version_slug, true );
+		}
+		check_ssl();
+	}
+
+	\register_activation_hook( __FILE__, 'wp2fa_free_on_plugin_activation' );
+}
+// @free:end
+
+/*
+ * Clears the config cache from the DB
+ *
+ * @return void
+ *
+ * @since 2.2.0
+ */
+\add_action(
+	'upgrader_process_complete',
+	function () {
+		delete_transient( 'wp_2fa_config_file_hash' );
+	},
+	10,
+	2
+);
+
+if ( ! function_exists( 'check_ssl' ) ) {
+	/**
+	 * Checks if the required library is installed and cancels the process if not.
+	 *
+	 * @return void
+	 *
+	 * @since 2.2.0
+	 */
+	function check_ssl() {
+		if ( ! \WP2FA\Authenticator\Open_SSL::is_ssl_available() ) {
+			$html = '<div class="updated notice is-dismissible">
+				<p>' . \esc_html__( 'This plugin requires OpenSSL. Contact your web host or website administrator so they can enable OpenSSL. Re-activate the plugin once the library has been enabled.', 'wp-2fa' )
+				. '</p>
+			</div>';
+
+			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+			exit();
+		}
+	}
+}
+
+if ( \PHP_VERSION_ID < 80000 && ! \interface_exists( 'Stringable' ) ) {
+	interface Stringable {
+ // phpcs:ignore Universal.Files.SeparateFunctionsFromOO.Mixed
+		/**
+		 * Mockup function for PHP versions lower than 8.
+		 *
+		 * @return string
+		 */
+		public function __toString();
+	}
+}
+
+if ( ! function_exists( 'str_starts_with' ) ) {
+	/**
+	 * PHP lower than 8 is missing that function but it required in the newer versions of our plugin.
+	 *
+	 * @param string $haystack - The string to search in.
+	 * @param string $needle - The needle to search for.
+	 *
+	 * @return bool
+	 *
+	 * @since 2.6.4
+	 */
+	function str_starts_with( $haystack, $needle ): bool {
+		if ( '' === $needle ) {
+			return true;
+		}
+
+		return 0 === strpos( $haystack, $needle );
+	}
+}

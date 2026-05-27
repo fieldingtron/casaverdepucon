@@ -1,0 +1,435 @@
+<?php
+/**
+ * Responsible for WP2FA user's TOTP manipulation.
+ *
+ * @package    wp2fa
+ * @subpackage methods-wizard
+ * @since      2.6.0
+ * @copyright  2026 Melapress
+ * @license    https://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
+ *
+ * @see       https://wordpress.org/plugins/wp-2fa/
+ */
+
+declare(strict_types=1);
+
+namespace WP2FA\Methods\Wizards;
+
+use WP2FA\WP2FA;
+use WP2FA\Methods\TOTP;
+use WP2FA\Utils\Settings_Utils;
+use WP2FA\Admin\Helpers\WP_Helper;
+use WP2FA\Admin\Views\Wizard_Steps;
+use WP2FA\Admin\Controllers\Methods;
+use WP2FA\Admin\Helpers\User_Helper;
+use WP2FA\Authenticator\Authentication;
+use WP2FA\Admin\Methods\Traits\Methods_Wizards_Trait;
+
+/**
+ * Class for handling totp codes.
+ *
+ * @since 2.6.0
+ *
+ * @package WP2FA
+ */
+if ( ! class_exists( '\WP2FA\Methods\Wizards\TOTP_Wizard_Steps' ) ) {
+	/**
+	 * TOTP code class, for handling totp (app) code generation and such.
+	 *
+	 * @since 2.6.0
+	 */
+	class TOTP_Wizard_Steps extends Wizard_Steps {
+
+		use Methods_Wizards_Trait;
+
+		/**
+		 * Keeps the main class method name, so we can call it when needed.
+		 *
+		 * @var string
+		 *
+		 * @since 2.6.0
+		 */
+		private static $main_class = TOTP::class;
+
+		/**
+		 * The default value of the method order in the wizards.
+		 *
+		 * @var integer
+		 *
+		 * @since 2.6.0
+		 */
+		private static $order = 1;
+
+		/**
+		 * Inits the class hooks
+		 *
+		 * @return void
+		 *
+		 * @since 2.4.0
+		 */
+		public static function init() {
+			\add_filter( WP_2FA_PREFIX . 'methods_modal_options', array( __CLASS__, 'totp_option' ), 10, 2 );
+			\add_action( WP_2FA_PREFIX . 'modal_methods', array( __CLASS__, 'modal_configure' ) );
+			\add_filter( WP_2FA_PREFIX . 'methods_re_configure', array( __CLASS__, 'totp_re_configure' ), 10, 2 );
+			\add_filter( WP_2FA_PREFIX . 'methods_settings', array( __CLASS__, 'totp_wizard_settings' ), 10, 4 );
+		}
+
+		/**
+		 * Shows the option to reconfigure email (if applicable)
+		 *
+		 * @param array  $methods - Array of methods collected.
+		 * @param string $role - The name of the role to show option to.
+		 *
+		 * @since 2.6.0
+		 *
+		 * @return array
+		 */
+		public static function totp_re_configure( array $methods, string $role ): array {
+
+			if ( ! TOTP::is_enabled( $role ) ) {
+				return $methods;
+			}
+			\ob_start();
+			?>
+				<div class="option-pill">
+					<?php echo \wp_kses_post( WP2FA::contextual_reconfigure_text( WP2FA::get_wp2fa_white_label_setting( 'totp_reconfigure_intro', true ), User_Helper::get_user_object()->ID, TOTP::METHOD_NAME ) ); ?>
+					<div class="wp2fa-setup-actions">
+						<a href="#" class="button button-primary wp-2fa-button-primary" data-name="next_step_setting_modal_wizard" data-trigger-reset-key <?php echo WP_Helper::create_data_nonce( self::json_nonce() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> data-user-id="<?php echo \esc_attr( User_Helper::get_user_object()->ID ); ?>" data-next-step="2fa-wizard-totp"><?php \esc_html_e( 'Reset Key', 'wp-2fa' ); ?></a>
+					</div>
+				</div>
+			<?php
+				$output = ob_get_contents();
+				ob_end_clean();
+
+				$methods[ self::get_order( $role, $methods ) ] = array(
+					'name'   => self::$main_class::METHOD_NAME,
+					'output' => $output,
+				);
+
+				return $methods;
+		}
+
+		/**
+		 * Shows the initial totp setup options based on enabled methods
+		 *
+		 * @param array  $methods - Array of methods collected.
+		 * @param string $role - The name of the role to show option to.
+		 *
+		 * @since 2.6.0
+		 *
+		 * @return array
+		 */
+		public static function totp_option( array $methods, string $role ): array {
+			if ( TOTP::is_enabled( $role ) && Methods::is_method_enabled_for_role( TOTP::METHOD_NAME, $role ) ) {
+				\ob_start();
+				?>
+				<div class="option-pill">
+					<label for="basic">
+						<input id="basic" name="wp_2fa_enabled_methods" type="radio" value="totp">
+						<?php echo \wp_kses_post( WP2FA::get_wp2fa_white_label_setting( 'totp-option-label', true ) ); ?>
+						<?php
+						$show = ( 'show_help_text' === WP2FA::get_wp2fa_white_label_setting( 'show_help_text' ) && WP2FA::get_wp2fa_white_label_setting( \esc_attr( TOTP::METHOD_NAME ) . '-option-label-hint', true ) ) ?? false;
+						if ( $show ) {
+							echo '<br><span class="wizard-tooltip" data-tooltip-content="data-' . \esc_attr( TOTP::METHOD_NAME ) . '-tooltip-content-wrapper">i</span>';
+						}
+						?>
+					</label>
+					<?php
+					if ( $show ) {
+						echo '<p class="description tooltip-content-wrapper" data-' . \esc_attr( TOTP::METHOD_NAME ) . '-tooltip-content-wrapper>' . \wp_kses_post( WP2FA::get_wp2fa_white_label_setting( \esc_attr( TOTP::METHOD_NAME ) . '-option-label-hint', true ) ) . '</p>';
+					}
+					?>
+				</div>
+				<?php
+				$output = ob_get_contents();
+				ob_end_clean();
+
+				$methods[ self::get_order( $role, $methods ) ] = $output;
+			}
+
+			return $methods;
+		}
+
+		/**
+		 * Shows the TOTP modal configuration.
+		 *
+		 * @param \WP_User $user - WP User object.
+		 *
+		 * @return void
+		 *
+		 * @since 2.6.0
+		 * @since 3.0.0 - Added $user parameter.
+		 */
+		public static function modal_configure( $user ) {
+			if ( TOTP::is_enabled( User_Helper::get_user_role( $user ) ) ) {
+				?>
+				<div class="wizard-step" id="2fa-wizard-totp">
+					<fieldset>
+						<?php self::totp_configure( $user ); ?>
+					</fieldset>
+				</div>
+				<?php
+			}
+		}
+
+		/**
+		 * Reconfigures the totp form
+		 *
+		 * @param \WP_User $user - WP User object.
+		 *
+		 * @since 2.6.0
+		 * @since 3.0.0 - $user parameter is added.
+		 *
+		 * @return void
+		 */
+		public static function totp_configure( $user ) {
+
+			if ( ! TOTP::is_enabled( User_Helper::get_user_role( $user ) ) ) {
+				return;
+			}
+
+			// Regenerate the code if the method is not in use.
+			if ( TOTP::METHOD_NAME !== User_Helper::get_enabled_method_for_user() ) {
+				TOTP::remove_user_totp_key();
+			}
+
+			/**
+			 * Active on modal, additional attribute is required on standard HTML (check below)
+			 */
+			$add_step_attributes = 'active';
+
+			/**
+			 * Closing div for extra modal wrappers see lines above
+			 */
+			$close_div = '';
+
+			$qr_code                = '<img class="qr-code" src="' . ( TOTP::get_qr_code() ) . '" id="wp-2fa-totp-qrcode" />';
+			$open30_wrapper         = '
+				<div class="mb-30 clear-both">
+				';
+					$open60_wrapper = '
+					<div class="modal-60">
+				';
+					$open40_wrapper = '
+					<div class="modal-40">
+				';
+					$close_div      = '
+				</div>
+				';
+
+			?>
+				<div class="step-setting-wrapper <?php echo \esc_attr( $add_step_attributes ); ?>">
+					<div class="mb-20">
+						<?php echo wp_kses_post( WP2FA::get_wp2fa_white_label_setting( 'method_help_totp_intro', true ) ); ?>
+					</div>
+					<?php echo $open30_wrapper . $open40_wrapper; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+
+					<div class="qr-code-wrapper">
+						<?php echo $qr_code; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					</div>
+					<?php
+					echo $close_div; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					echo $open60_wrapper; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					?>
+
+					<div class="radio-cells option-pill mb-0">
+						<ol class="wizard-custom-counter">
+							<li><?php echo \wp_kses_post( WP2FA::get_wp2fa_white_label_setting( 'method_help_totp_step_1', true ) ); ?>
+								<?php
+								if ( 'show_help_text' === WP2FA::get_wp2fa_white_label_setting( 'show_help_text' ) ) {
+									?>
+								<span class="wizard-tooltip" data-tooltip-content="data-totp-setup-tooltip-content-wrapper">i</span>
+								<?php } ?>
+							</li>
+							<li><?php echo \wp_kses_post( WP2FA::get_wp2fa_white_label_setting( 'method_help_totp_step_2', true ) ); ?>
+								<div class="app-key-wrapper">
+									<input type="text" id="app-key-input" readonly value="<?php echo \esc_html( TOTP::get_totp_decrypted() ); ?>" class="app-key">
+									<?php
+									if ( is_ssl() ) {
+										?>
+										<span class="click-to-copy"><?php \esc_html_e( 'COPY', 'wp-2fa' ); ?></span>
+									<?php } ?>
+								</div>
+							</li>
+							<li><?php echo \wp_kses_post( WP2FA::get_wp2fa_white_label_setting( 'method_help_totp_step_3', true ) ); ?></li>
+						</ol>
+					</div>
+						<?php
+						echo $close_div; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo $close_div; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						?>
+						<?php if ( ! empty( WP2FA::get_wp2fa_white_label_setting( 'show_help_text' ) ) ) { ?>
+					<div class="tooltip-content-wrapper" data-totp-setup-tooltip-content-wrapper>
+						<?php echo \wp_kses_post( WP2FA::get_wp2fa_white_label_setting( 'method_help_totp_more_intro', true ) ); ?>
+					</div>
+					<?php } ?>
+					<div class="wp2fa-setup-actions">
+						<button class="button wp-2fa-button-primary" name="next_step_setting" value="<?php \esc_attr_e( 'I\'m Ready', 'wp-2fa' ); ?>" type="button"><?php \esc_html_e( 'I\'m Ready', 'wp-2fa' ); ?></button>
+						<a class="button button-primary wp-2fa-button-secondary modal_cancel"><?php \esc_attr_e( 'Cancel', 'wp-2fa' ); ?></a>
+						<?php
+						/*
+							if ( User_Helper::is_enforced( User_Helper::get_user_object()->ID ) ) {
+								?>
+							<a class="button button-primary wp-2fa-button-primary modal_logout" <?php echo WP_Helper::create_data_nonce( 'wp-2fa-logout' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>><?php \esc_attr_e( 'Log out', 'wp-2fa' ); ?></a>
+							<?php
+							}
+							*/
+						?>
+					</div>
+				</div>
+				<div class="step-setting-wrapper" data-step-title="<?php \esc_html_e( 'Verify configuration', 'wp-2fa' ); ?>">
+					<div class="mb-20">
+						<?php echo \wp_kses_post( WP2FA::get_wp2fa_white_label_setting( 'method_verification_totp_pre', true ) ); ?>
+					</div>
+					<fieldset>
+						<label for="2fa-totp-authcode">
+							<?php \esc_html_e( 'Verification Code:', 'wp-2fa' ); ?>
+							<input type="tel" name="wp-2fa-totp-authcode" id="wp-2fa-totp-authcode" class="input" value="" size="20" pattern="[0-9]*" autocomplete="off"/>
+							<script>
+								const totp_authcode = document.getElementById('wp-2fa-totp-authcode');
+								totp_authcode.addEventListener('input', function() {
+								this.value = this.value.trim();
+								});
+							</script>
+						</label>
+						<div class="verification-response"></div>
+					</fieldset>
+					<input type="hidden" name="wp-2fa-totp-key" value="<?php echo \esc_attr( TOTP::get_totp_decrypted() ); ?>" />
+					
+					<a href="#" class="modal__btn button button-primary wp-2fa-button-primary" data-validate-authcode-ajax <?php echo WP_Helper::create_data_nonce( 'wp-2fa-validate-authcode' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>><?php \esc_html_e( 'Validate & Save', 'wp-2fa' ); ?></a>
+					<button class="modal__btn wp-2fa-button-secondary button button-secondary wp-2fa-button-secondary" data-close-2fa-modal aria-label="Close this dialog window"><?php \esc_html_e( 'Cancel', 'wp-2fa' ); ?></button>
+				</div>
+
+			<?php
+		}
+
+		/**
+		 * Settings page and first time wizard settings render
+		 *
+		 * @param array   $methods - Array with all the methods in which we have to add this one.
+		 * @param boolean $setup_wizard - Is that the first time setup wizard.
+		 * @param string  $data_role - Additional HTML data attribute.
+		 * @param mixed   $role - Name of the role.
+		 *
+		 * @return array - The array with the methods with all the methods wizard steps.
+		 *
+		 * @since 2.6.0
+		 */
+		public static function totp_wizard_settings( array $methods, bool $setup_wizard, string $data_role, $role = null ) {
+			$name_prefix = WP_2FA_POLICY_SETTINGS_NAME;
+			$role_id     = '';
+			if ( null !== $role && '' !== trim( (string) $role ) ) {
+				$name_prefix .= "[{$role}]";
+				$data_role    = 'data-role="' . $role . '"';
+				$role_id      = '-' . $role;
+			}
+
+			/**
+			 * Filter to check if the interface has to disable this method.
+			 *
+			 * @param bool - Should we disable the method - default false.
+			 * @param Providers - The current method class.
+			 * @param null|string - The role name for which the status must be checked.
+			 *
+			 * @since 2.9.2
+			 */
+			$method_disabled_class = \apply_filters( WP_2FA_PREFIX . 'method_settings_disabled', false, self::$main_class, $role );
+
+			if ( $method_disabled_class ) {
+				$method_disabled_class = 'disabled';
+			}
+
+			\ob_start();
+			if ( ! \class_exists( \XMLWriter::class ) ) {
+				TOTP::disable_globally();
+				?>
+				<div id="<?php echo \esc_attr( TOTP::METHOD_NAME ); ?>-method-wrapper" class="method-wrapper">
+					<?php
+					\esc_html_e( 'You need to install the libxml extension to use this method. Ask the host support for enabling it.', 'wp-2fa' );
+
+					?>
+				</div>
+				<?php
+				$output = ob_get_contents();
+				ob_end_clean();
+
+				$methods[ self::get_order( $role, $methods ) ] = $output;
+
+				return $methods;
+
+			}
+			?>
+			<div id="<?php echo \esc_attr( TOTP::METHOD_NAME ); ?>-method-wrapper" class="method-wrapper">
+				<?php echo self::hidden_order_setting( $role ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				<label class="<?php echo \esc_html( $method_disabled_class ); ?>" for="totp<?php echo \esc_attr( $role_id ); ?>" style="margin-bottom: 0 !important;">
+					<input type="checkbox" id="totp<?php echo \esc_attr( $role_id ); ?>" name="<?php echo \esc_attr( $name_prefix ); ?>[enable_totp]" value="enable_totp"
+					<?php echo $data_role; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+
+					
+						<?php \checked( TOTP::POLICY_SETTINGS_NAME, Settings_Utils::get_setting_role( $role, TOTP::POLICY_SETTINGS_NAME ), true ); ?>
+						
+					>
+			<?php echo \esc_html( WP2FA::get_wp2fa_white_label_setting( 'totp-option-label', true ) ) . ' - '; ?><a href="https://melapress.com/support/kb/wp-2fa-configuring-2fa-apps/?&utm_source=plugin&utm_medium=wp2fa&utm_campaign=totp_aplications_help" target="_blank" rel=noopener><?php \esc_html_e( 'complete list of supported 2FA apps.', 'wp-2fa' ); ?></a>
+				</label>
+				<?php
+				if ( $setup_wizard ) {
+					echo '<p class="description">';
+					printf(
+						/* translators: link to the knowledge base website */
+						\esc_html__( 'When using this method, users will need to configure a 2FA app to get the one-time login code. The plugin supports all standard 2FA apps. Refer to the %s for more information. Allowing users to set up a secondary 2FA method is highly recommended. You can do this in the next step of the wizard. This will allow users to log in using an alternative method should they, for example lose access to their phone.', 'wp-2fa' ),
+						'<a href="https://melapress.com/support/kb/wp-2fa-configuring-2fa-apps/?&utm_source=plugin&utm_medium=wp2fa&utm_campaign=guide_how_to_setup_2fa_apps" target="_blank">' . \esc_html__( 'guide on how to set up 2FA apps', 'wp-2fa' ) . '</a>'
+					);
+					echo '</p>';
+				}
+				if ( ! $setup_wizard ) {
+					echo '<p class="description">';
+					printf(
+						/* translators: link to the knowledge base website */
+						\esc_html__( 'Refer to the %s for more information on how to setup these apps and which apps are supported.', 'wp-2fa' ),
+						'<a href="https://melapress.com/support/kb/wp-2fa-configuring-2fa-apps/?&utm_source=plugin&utm_medium=wp2fa&utm_campaign=guide_how_to_setup_2fa_apps_2" target="_blank">' . \esc_html__( 'guide on how to set up 2FA apps', 'wp-2fa' ) . '</a>'
+					);
+					echo '</p>';
+				}
+				?>
+			</div>
+			<?php
+			$output = ob_get_contents();
+			ob_end_clean();
+
+			$methods[ self::get_order( $role, $methods ) ] = $output;
+
+			return $methods;
+		}
+
+		/**
+		 * Prints the form that prompts the user to authenticate.
+		 *
+		 * @param \WP_User $user - \WP_User object of the logged-in user.
+		 *
+		 * @since 2.6.0
+		 */
+		public static function totp_authentication_page( $user ) {
+			require_once ABSPATH . '/wp-admin/includes/template.php';
+			?>
+			<?php
+			if ( 'use-custom' == WP2FA::get_wp2fa_white_label_setting( 'use_custom_2fa_message' ) ) {
+				echo WP2FA::get_wp2fa_white_label_setting( 'custom-text-app-code-page', true ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			} else {
+				echo WP2FA::get_wp2fa_white_label_setting( 'default-text-code-page', true ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
+			?>
+				<p>
+					</br>
+					<label for="authcode"><?php \esc_html_e( 'Verification Code:', 'wp-2fa' ); ?></label>
+					<input type="tel" name="authcode" id="authcode" class="input" value="" size="20" pattern="[0-9]*" autocomplete="off" />
+					<script>
+						const authcode = document.getElementById('authcode');
+						authcode.addEventListener('input', function() {
+						this.value = this.value.trim();
+						});
+					</script>
+				</p>
+			<?php
+		}
+	}
+}

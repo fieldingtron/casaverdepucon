@@ -1,0 +1,75 @@
+﻿Generado por All in One SEO v4.9.7.2, este es un archivo llms.txt, utilizado por LLMs para indexar el sitio.
+
+# CasaVerdePucón
+
+Arquitectura BioClimática
+
+## Sitemaps
+
+- [XML Sitemap](https://casaverdepucon.com/sitemap.xml): Contains all public & indexable URLs for this website.
+
+## Entradas
+
+- [Nuevos Proyectos](https://casaverdepucon.com/2015/02/08/nuevos-proyectos/)
+- [Casa Austral: Nueva Obra en el Camino al Volcán Villarrica](https://casaverdepucon.com/2014/03/19/casa-austral-nueva-obra-en-el-camino-al-volcan-villarrica/)
+- [Fotos! Inicio de Obras en el Sector Candelaria: Casa de Potesta](https://casaverdepucon.com/2013/12/23/fotos-inicio-de-obras-en-el-sector-candelaria-casa-de-potesta/)
+- [Nuevo! Fotos de vivienda de presupuesto ajustado.](https://casaverdepucon.com/2013/12/12/nuevo-fotos-de-vivienda-de-presupuesto-ajustado/)
+- [Publicación en el Diario Austral!](https://casaverdepucon.com/2012/11/18/publicacion-en-el-diario-austral/)
+- [Comienzo de obra en Los Riscos](https://casaverdepucon.com/2012/10/30/comienzo-de-obra-en-los-riscos/)
+- [Mutua colaboración con el estudio Salinas+ARQs de Pingueral](https://casaverdepucon.com/2012/10/30/mutua-colaboracion-con-el-estudio-salinasarqs-de-pingueral/)
+- [Fotos fin de obra!](https://casaverdepucon.com/2012/06/09/fotos-fin-de-obra/)
+- [Nuevas fotos del sector El Claro](https://casaverdepucon.com/2012/04/18/nuevas-fotos-de-la-casa/)
+
+## Páginas
+
+- [](https://casaverdepucon.com/)
+- [Imágenes](https://casaverdepucon.com/fotos/)
+- [Interiorismo y diseño de mobiliario](https://casaverdepucon.com/servicos/interiorismo/)
+- [Arquitectura](https://casaverdepucon.com/servicos/arquitectura/)
+- [Nosotros](https://casaverdepucon.com/sobre-nosotros/) - #CasaVerde Pucón nace en 2012 con el objetivo de ofrecer diseños eficientes, exclusivos para cada cliente y ubicación, respondiendo de forma individualizada a sus necesidades. Entendemos lo importante que es el Diseño de una Casa para las familias que nos contratan, por ello los principios que nos mueven son: ''Calidad, Responsabilidad y Eficiencia'' Nuestro equipo
+- [Tarifas honorarios](https://casaverdepucon.com/llave-en-mano/)
+- [Proyectos destacados](https://casaverdepucon.com/inmobiliaria/)
+- [Construcción](https://casaverdepucon.com/servicos/construcion/)
+- [Servicios](https://casaverdepucon.com/servicos/)
+- [Contacto y ubicación](https://casaverdepucon.com/contacto/)
+- [Estrategias de sostenibilidad](https://casaverdepucon.com/sostenibilidad/estrategias-de-sostenibilidad/)
+- [CASA AZOCAR](https://casaverdepucon.com/inmobiliaria/casa-azocar/)
+- [CASA CALDERON](https://casaverdepucon.com/inmobiliaria/casa-calderon/)
+- [Fotos Coinco](https://casaverdepucon.com/inmobiliaria/casa-coinco/galeria-coinco/)
+- [Yoga Cabin](https://casaverdepucon.com/inmobiliaria/yoga-cabin/)
+- [Sure Lodge](https://casaverdepucon.com/inmobiliaria/sure-lodge/)
+- [Casa Coinco](https://casaverdepucon.com/inmobiliaria/casa-coinco/)
+- [Cocina ''La Fleur de Sel''](https://casaverdepucon.com/inmobiliaria/cocina-la-fleur-de-sel/)
+- [Casa Mirador](https://casaverdepucon.com/inmobiliaria/casa-mirador/)
+- [Casa Goeppinger](https://casaverdepucon.com/inmobiliaria/casa-goeppinger/)
+- [Casa Refugio Patagonia](https://casaverdepucon.com/inmobiliaria/casa-refugio-patagonia/)
+- [Sauna Modular](https://casaverdepucon.com/inmobiliaria/sauna-modular/)
+- [Casa Austral](https://casaverdepucon.com/inmobiliaria/casa-austral/)
+- [Fotos Lake Lodge](https://casaverdepucon.com/inmobiliaria/casa-de-potesta/fotos-casa-de-potesta/)
+- [Lake Lodge](https://casaverdepucon.com/inmobiliaria/casa-de-potesta/)
+- [Casa Udovic](https://casaverdepucon.com/inmobiliaria/casa-udovic/)
+- [Departamentos Krinner](https://casaverdepucon.com/inmobiliaria/departamentos-krinner/)
+- [Casa Miraflores](https://casaverdepucon.com/inmobiliaria/casa-miraflores/)
+- [Terraza Koerber](https://casaverdepucon.com/inmobiliaria/terraza-koerber/)
+- [Casa Marshall Zero](https://casaverdepucon.com/inmobiliaria/casa-marshall-zero/)
+- [Casa CB6](https://casaverdepucon.com/inmobiliaria/casa-6/)
+- [Casa CB5](https://casaverdepucon.com/inmobiliaria/casa-5/)
+- [Fotos Casa Goeppinger](https://casaverdepucon.com/inmobiliaria/casa-goeppinger/fotos-casa-goeppinger/)
+- [Fotos Sauna Modular](https://casaverdepucon.com/inmobiliaria/sauna-modular/fotos-sauna-modular/)
+- [Fotos Departamentos Krinner](https://casaverdepucon.com/inmobiliaria/departamentos-krinner/fotos-departamentos-krinner/)
+- [Fotos Casa Udovic](https://casaverdepucon.com/inmobiliaria/casa-udovic/fotos-casa-udovic/)
+- [Fotos Casa Mirador](https://casaverdepucon.com/inmobiliaria/casa-mirador/fotos-casa-mirador/)
+- [Fotos Casa Refugio Patagonia](https://casaverdepucon.com/inmobiliaria/casa-refugio-patagonia/fotos-casa-refugio-patagonia/)
+- [Fotos Casa Austral](https://casaverdepucon.com/inmobiliaria/casa-austral/fotos-casa-austral/)
+- [Fotos Miraflores](https://casaverdepucon.com/inmobiliaria/casa-miraflores/fotos-miraflores/)
+- [fotos terraza koerber](https://casaverdepucon.com/inmobiliaria/terraza-koerber/fotos-terraza-koerber/)
+- [Fotos Marshall Zero](https://casaverdepucon.com/inmobiliaria/casa-marshall-zero/fotos/)
+- [Fotos CB6](https://casaverdepucon.com/inmobiliaria/casa-6/galeria-casa-6/)
+- [Fotos CB5](https://casaverdepucon.com/inmobiliaria/casa-5/galeria-casa-5/)
+- [Gracias!](https://casaverdepucon.com/gracias/)
+- [Sostenibilidad](https://casaverdepucon.com/sostenibilidad/)
+
+## Categorías
+
+- [Uncategorized](https://casaverdepucon.com/category/uncategorized/)
+

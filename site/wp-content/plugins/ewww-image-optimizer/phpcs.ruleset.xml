@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<ruleset name="WordPress Coding Standards for Plugins">
+	<description>Generally-applicable sniffs for WordPress plugins</description>
+	<!-- Only sniff PHP files -->
+	<arg name="extensions" value="php"/>
+
+	<exclude-pattern>/vendor/*</exclude-pattern>
+	<exclude-pattern>/tests/*</exclude-pattern>
+
+	<rule ref="WordPress-Core" />
+	<rule ref="WordPress-Docs" />
+
+	<rule ref="Squiz.PHP.CommentedOutCode">
+		<exclude name="Squiz.PHP.CommentedOutCode.Found" />
+	</rule>
+
+	<rule ref="Generic.PHP.NoSilencedErrors">
+		<exclude name="Generic.PHP.NoSilencedErrors.Discouraged" />
+	</rule>
+
+	<rule ref="WordPress.PHP.NoSilencedErrors">
+		<properties>
+			<property name="customAllowedFunctionsList" type="array">
+				<element value="ini_get"/>
+				<element value="exif_read_data"/>
+				<element value="ob_end_flush"/>
+			</property>
+		</properties>
+	</rule>
+	<rule ref="WordPress.NamingConventions.ValidVariableName">
+		<properties>
+			<property name="allowed_custom_properties" type="array">
+				<element value="formatOutput"/>
+				<element value="imgQuality"/>
+				<element value="parentNode"/>
+				<element value="nodeName"/>
+				<element value="nextSibling"/>
+				<element value="documentElement"/>
+				<element value="imagePath"/>
+				<element value="webimagePath"/>
+				<element value="thumbPath"/>
+				<element value="fileName"/>
+				<element value="Version"/>
+				<element value="Name"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="ewww-image-optimizer"/>
+			</property>
+		</properties>
+	</rule>
+
+	<config name="testVersion">7.4-</config>
+	<rule ref="PHPCompatibilityWP">
+		<severity>10</severity>
+	</rule>
+
+	<rule ref="WordPress.Security">
+		<severity>10</severity>
+	</rule>
+
+	<rule ref="WordPress.DB.PreparedSQL">
+		<severity>10</severity>
+	</rule>
+</ruleset>

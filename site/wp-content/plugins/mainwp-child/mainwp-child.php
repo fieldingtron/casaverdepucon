@@ -1,0 +1,161 @@
+<?php
+/**
+ * MainWP Child Plugin
+ *
+ * @package MainWP\Child
+ */
+
+/**
+ * Plugin Name: MainWP Child
+ * Description: Provides a secure connection between your MainWP Dashboard and your WordPress sites. MainWP allows you to manage WP sites from one central location. Plugin documentation and options can be found here https://mainwp.com/kb.
+ * Plugin URI: https://mainwp.com/
+ * Author: MainWP
+ * Author URI: https://mainwp.com
+ * Text Domain: mainwp-child
+ * Version: 6.0.11
+ * Requires at least: 6.2
+ * Requires PHP: 7.4
+ * License: GPLv3 or later
+ * License URI: https://www.gnu.org/licenses/gpl-3.0.html
+ */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
+require_once ABSPATH . 'wp-includes' . DIRECTORY_SEPARATOR . 'version.php'; // NOSONAR - WP compatible. Version information from WordPress.
+
+/**
+ * Define MainWP Child Plugin Debug Mode.
+ *
+ * @const ( bool ) Whether or not MainWP Child is in debug mode. Default: false.
+ * @source https://code-reference.mainwp.com/classes/MainWP.Child.MainWP_Child.html
+ */
+if ( ! defined( 'MAINWP_CHILD_DEBUG' ) ) {
+    define( 'MAINWP_CHILD_DEBUG', false );
+}
+
+if ( ! defined( 'MAINWP_CHILD_FILE' ) ) {
+
+    /**
+     * Define MainWP Child Plugin absolute full path and filename of this file.
+     *
+     * @const ( string ) Defined MainWP Child file path.
+     * @source https://github.com/mainwp/mainwp-child/blob/master/mainwp-child.php
+     */
+    define( 'MAINWP_CHILD_FILE', __FILE__ );
+}
+
+if ( ! defined( 'MAINWP_CHILD_PLUGIN_DIR' ) ) {
+
+    /**
+     * Define MainWP Child Plugin Directory.
+     *
+     * @const ( string ) Defined MainWP Child Plugin Directory.
+     * @source https://github.com/mainwp/mainwp-child/blob/master/mainwp-child.php
+     */
+    define( 'MAINWP_CHILD_PLUGIN_DIR', plugin_dir_path( MAINWP_CHILD_FILE ) );
+}
+
+if ( ! defined( 'MAINWP_CHILD_MODULES_DIR' ) ) {
+
+    /**
+     * Define MainWP Child Modules Directory.
+     *
+     * @since 5.4.1
+     */
+    define( 'MAINWP_CHILD_MODULES_DIR', MAINWP_CHILD_PLUGIN_DIR . 'modules/' );
+}
+
+if ( ! defined( 'MAINWP_CHILD_URL' ) ) {
+
+    /**
+     * Define MainWP Child Plugin URL.
+     *
+     * @const ( string ) Defined MainWP Child Plugin URL.
+     * @source https://github.com/mainwp/mainwp-child/blob/master/mainwp-child.php
+     */
+    define( 'MAINWP_CHILD_URL', plugin_dir_url( MAINWP_CHILD_FILE ) );
+}
+
+/**
+ * MainWP Child Plugin Autoloader to load all other class files.
+ *
+ * @param string $class_name Name of the class to load.
+ *
+ * @uses \MainWP\Child\MainWP_Child()
+ */
+function mainwp_child_autoload( $class_name ) {
+
+    if ( \mainwp_child_modules_loader( $class_name ) ) {
+        return;
+    }
+
+    $autoload_dir = \trailingslashit( __DIR__ . '/class' );
+
+    if ( 0 === strpos( $class_name, 'MainWP\Child' ) ) {
+        // strip the namespace prefix: MainWP\Child\ .
+        $class_name    = substr( $class_name, 13 );
+        $autoload_path = sprintf( '%sclass-%s.php', $autoload_dir, strtolower( str_replace( '_', '-', $class_name ) ) );
+        if ( file_exists( $autoload_path ) ) {
+            require_once $autoload_path; // NOSONAR - WP compatible.
+        }
+    }
+}
+
+if ( function_exists( 'spl_autoload_register' ) ) {
+    spl_autoload_register( 'mainwp_child_autoload' );
+}
+
+require_once MAINWP_CHILD_PLUGIN_DIR . 'includes' . DIRECTORY_SEPARATOR . 'functions.php'; // NOSONAR - WP compatible.
+
+// Delay the heavy constructor until we really need it.
+$mainWPChild = null;
+$get_child   = static function () use ( &$mainWPChild ) {
+    if ( null === $mainWPChild ) {
+        $mainWPChild = new MainWP\Child\MainWP_Child(
+            WP_PLUGIN_DIR . DIRECTORY_SEPARATOR . plugin_basename( __FILE__ )
+        );
+    }
+    return $mainWPChild;
+};
+
+register_activation_hook(
+    __FILE__,
+    static function () use ( $get_child ) {
+        $get_child()->activation();
+    }
+);
+register_deactivation_hook(
+    __FILE__,
+    static function () use ( $get_child ) {
+        $get_child()->deactivation();
+    }
+);
+
+add_action(
+    'plugins_loaded',
+    function () use ( $get_child ) {
+        if (
+            ! is_admin()
+            && ! wp_doing_ajax()
+            && ! ( defined( 'REST_REQUEST' ) && REST_REQUEST )
+            && ! wp_doing_cron()
+            && ! defined( 'WP_CLI' )
+            && ! isset( $_REQUEST['mainwpsignature'] ) // phpcs:ignore WordPress.Security.NonceVerification
+
+        ) {
+            // For frontend requests, use lightweight initialization.
+            $get_child()->init_frontend_only();
+        } else {
+            // For admin, AJAX, REST, cron, CLI, or API requests, use full initialization.
+            $get_child()->init_full();
+        }
+    }
+);
+
+$changes_logs_mod_file = MAINWP_CHILD_PLUGIN_DIR . 'modules' . DIRECTORY_SEPARATOR . 'changes-logs' . DIRECTORY_SEPARATOR . 'changes-logs.php';
+if ( file_exists( $changes_logs_mod_file ) ) {
+    include_once $changes_logs_mod_file; // NOSONAR - ok.
+}

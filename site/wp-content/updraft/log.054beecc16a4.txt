@@ -1,0 +1,780 @@
+0000.001 (0) Opened log file at time: Wed, 22 Apr 2026 02:32:19 +0000 on https://casaverdepucon.com
+0000.003 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.26.2 WP: 6.9.4 PHP: 8.4.14 (cgi-fcgi, Linux iad1-shared-b7-47 6.6.49-grsec-jammy+ #10 SMP Thu Sep 12 23:23:08 UTC 2024 x86_64) MySQL: 8.0.41-0ubuntu0.24.04.1 (max packet size=33554432) WPLANG: es_ES Server: Apache safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 58.4M | 60M) multisite: N openssl: OpenSSL 3.0.2 15 Mar 2022 mcrypt: N LANG:  WP Proxy: disabled ZipArchive::addFile: Y
+0000.004 (0) Free space on disk containing Updraft's temporary directory: 1354096.1 MB
+0000.009 (0) Tasks: Backup files: 1 (schedule: monthly) Backup DB:  (schedule: monthly)
+0000.010 (0) Processed schedules. Combining jobs from identical schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.016 (0) Requesting semaphore lock (fd) (apparently via scheduler: last_scheduled_action_called_at=1774233140, seconds_ago=2591999)
+0000.019 (0) Set semaphore last lock (fd) time to 2026-04-22 02:32:19
+0000.020 (0) Semaphore lock (fd) complete
+0000.024 (0) Backup run: resumption=0, nonce=054beecc16a4, file_nonce=054beecc16a4 begun at=1776825139 (0s ago), job type=backup
+0000.025 (0) Scheduling a resumption (1) after 300 seconds (1776825439) in case this run gets aborted
+0000.034 (0) Checking if we have a zip executable available
+0000.035 (0) Testing: /usr/bin/zip
+0000.044 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.045 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.047 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.048 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.049 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.057 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.059 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.064 (0) Working binary zip found: /usr/bin/zip
+0000.070 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.071 (0) Creation of backups of directories: beginning
+0000.077 (0) Beginning creation of dump of plugins (split every: 500 MB)
+0000.508 (0) Total entities for the zip file: 1233 directories, 7700 files (0 skipped as non-modified), 151.9 MB
+0000.517 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.524 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.533 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.551 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.562 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.578 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 600 files added (on-disk size: 0 KB)
+0000.594 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 700 files added (on-disk size: 0 KB)
+0000.608 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 800 files added (on-disk size: 0 KB)
+0000.624 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 25 MB added on this batch (25 MB, 7700 files batched, 875 (875) added so far); re-opening (prior size: 0 KB)
+0002.502 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: size is now: 9.80 MB
+0002.504 (0) A useful amount of data was added after this amount of zip processing: 2.8 s (normalised: 2.8 s, rate: 9121.8 KB/s)
+0002.509 (0) Performance is good - will increase the amount of data we attempt to batch (time=2.8082509040833, normalised_time=2.8064498746399, max_time=2.5047740936279, data points known=1, old_max_bytes=26214400, new_max_bytes=56044614)
+0002.514 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 900 files added (on-disk size: 9997 KB)
+0002.530 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 1000 files added (on-disk size: 9997 KB)
+0002.543 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 1100 files added (on-disk size: 9997 KB)
+0002.555 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 1200 files added (on-disk size: 9997 KB)
+0002.567 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 1300 files added (on-disk size: 9997 KB)
+0002.578 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 1400 files added (on-disk size: 9997 KB)
+0002.588 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 1500 files added (on-disk size: 9997 KB)
+0002.603 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 1600 files added (on-disk size: 9997 KB)
+0002.615 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 1700 files added (on-disk size: 9997 KB)
+0002.626 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 1800 files added (on-disk size: 9997 KB)
+0002.636 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 1000 files added on this batch (15.7 MB, 7700 files batched, 1001 (1876) added so far); re-opening (prior size: 9997 KB)
+0003.545 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: size is now: 15.10 MB
+0003.561 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 1900 files added (on-disk size: 15468.5 KB)
+0003.570 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 2000 files added (on-disk size: 15468.5 KB)
+0003.582 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 2100 files added (on-disk size: 15468.5 KB)
+0003.595 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 2200 files added (on-disk size: 15468.5 KB)
+0003.615 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 2300 files added (on-disk size: 15468.5 KB)
+0003.625 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 2400 files added (on-disk size: 15468.5 KB)
+0003.633 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 2500 files added (on-disk size: 15468.5 KB)
+0003.644 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 2600 files added (on-disk size: 15468.5 KB)
+0003.654 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 2700 files added (on-disk size: 15468.5 KB)
+0003.687 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 2800 files added (on-disk size: 15468.5 KB)
+0003.696 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 1000 files added on this batch (16.5 MB, 7700 files batched, 1001 (2877) added so far); re-opening (prior size: 15468.5 KB)
+0004.677 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: size is now: 21.70 MB
+0004.682 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 2900 files added (on-disk size: 22228.2 KB)
+0004.690 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 3000 files added (on-disk size: 22228.2 KB)
+0004.699 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 3100 files added (on-disk size: 22228.2 KB)
+0004.715 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 3200 files added (on-disk size: 22228.2 KB)
+0004.726 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 3300 files added (on-disk size: 22228.2 KB)
+0004.734 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 3400 files added (on-disk size: 22228.2 KB)
+0004.743 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 3500 files added (on-disk size: 22228.2 KB)
+0004.753 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 3600 files added (on-disk size: 22228.2 KB)
+0004.764 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 3700 files added (on-disk size: 22228.2 KB)
+0004.775 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 3800 files added (on-disk size: 22228.2 KB)
+0004.791 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 1000 files added on this batch (23.3 MB, 7700 files batched, 1001 (3878) added so far); re-opening (prior size: 22228.2 KB)
+0006.050 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: size is now: 28.50 MB
+0006.055 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 3900 files added (on-disk size: 29162.4 KB)
+0006.064 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 4000 files added (on-disk size: 29162.4 KB)
+0006.073 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 4100 files added (on-disk size: 29162.4 KB)
+0006.082 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 4200 files added (on-disk size: 29162.4 KB)
+0006.092 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 4300 files added (on-disk size: 29162.4 KB)
+0006.099 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 4400 files added (on-disk size: 29162.4 KB)
+0006.108 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 4500 files added (on-disk size: 29162.4 KB)
+0006.120 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 4600 files added (on-disk size: 29162.4 KB)
+0006.129 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 4700 files added (on-disk size: 29162.4 KB)
+0006.137 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 4800 files added (on-disk size: 29162.4 KB)
+0006.147 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 1000 files added on this batch (30.1 MB, 7700 files batched, 1001 (4879) added so far); re-opening (prior size: 29162.4 KB)
+0007.134 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: size is now: 44.20 MB
+0007.140 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 4900 files added (on-disk size: 45276.8 KB)
+0007.149 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 5000 files added (on-disk size: 45276.8 KB)
+0007.157 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 5100 files added (on-disk size: 45276.8 KB)
+0007.168 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 5200 files added (on-disk size: 45276.8 KB)
+0007.175 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 5300 files added (on-disk size: 45276.8 KB)
+0007.186 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 5400 files added (on-disk size: 45276.8 KB)
+0007.194 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 5500 files added (on-disk size: 45276.8 KB)
+0007.203 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 5600 files added (on-disk size: 45276.8 KB)
+0007.213 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 5700 files added (on-disk size: 45276.8 KB)
+0007.221 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 5800 files added (on-disk size: 45276.8 KB)
+0007.227 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 1000 files added on this batch (16.8 MB, 7700 files batched, 1001 (5880) added so far); re-opening (prior size: 45276.8 KB)
+0007.989 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 5900 files added (on-disk size: 54241.7 KB)
+0007.997 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 6000 files added (on-disk size: 54241.7 KB)
+0008.007 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 6100 files added (on-disk size: 54241.7 KB)
+0008.015 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 6200 files added (on-disk size: 54241.7 KB)
+0008.023 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 6300 files added (on-disk size: 54241.7 KB)
+0008.030 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 6400 files added (on-disk size: 54241.7 KB)
+0008.039 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 6500 files added (on-disk size: 54241.7 KB)
+0008.047 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 6600 files added (on-disk size: 54241.7 KB)
+0008.054 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 6700 files added (on-disk size: 54241.7 KB)
+0008.066 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 6800 files added (on-disk size: 54241.7 KB)
+0008.074 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 1000 files added on this batch (16.9 MB, 7700 files batched, 1001 (6881) added so far); re-opening (prior size: 54241.7 KB)
+0009.196 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 6900 files added (on-disk size: 61049 KB)
+0009.204 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 7000 files added (on-disk size: 61049 KB)
+0009.213 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 7100 files added (on-disk size: 61049 KB)
+0009.221 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 7200 files added (on-disk size: 61049 KB)
+0009.232 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 7300 files added (on-disk size: 61049 KB)
+0009.240 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 7400 files added (on-disk size: 61049 KB)
+0009.247 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 7500 files added (on-disk size: 61049 KB)
+0009.257 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 7600 files added (on-disk size: 61049 KB)
+0009.266 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.tmp: 7700 files added (on-disk size: 61049 KB)
+0009.851 (0) Creating zip file manifest (backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.list-temp.tmp)
+0009.879 (0) Successfully created zip file manifest (size: 677704)
+0010.121 (0) Created plugins zip (0) - 63187.4 KB in 10 s (6293.6 KB/s) (sha1: 5346df0edc76d770214d42b0b1434749d894e3fd, sha256: e22f85d0534a01d7430709432bb82e89cb5cc090c85d2b3e2667a7317432cd29)
+0010.130 (0) Cloud backup selection (1/1): dreamobjects with instance (1/1) (last)
+0010.131 (0) Beginning dispatch of backup to remote (dreamobjects) (instance identifier s-1f55a6a76b3296c69634839725065079)
+0010.135 (0) Set endpoint (UpdraftPlus_S3): s3.us-east-005.dream.io
+0010.315 (0) DreamObjects: upload (us-east-005): backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip (chunks: 13) -> dreamobjects://backups-7508/casaverdepucon.com/backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip
+0010.361 (0) DreamObjects: chunked upload: got multipart ID: 4_z93a0f615f75916219474051a_f2009724ac75db284_d20260422_m023229_c005_v0501043_t0051_u01776825149654
+0010.564 (0) Dreamobjects chunked upload: 7.7 % uploaded (1, d1506a386ee1bb64114fffc4e31f6be8)
+0010.861 (0) Dreamobjects chunked upload: 15.4 % uploaded (2, 268950cef114fa20d4b4ccc0cca6e169)
+0011.048 (0) Dreamobjects chunked upload: 23.1 % uploaded (3, e41ba3350ba3aaac6f4aa8db67015c08)
+0011.251 (0) Dreamobjects chunked upload: 30.8 % uploaded (4, 9d543defab59ce89b02cf80a0def2715)
+0011.493 (0) Dreamobjects chunked upload: 38.5 % uploaded (5, c6eac833e27c2cae12cdaa87dd93087b)
+0011.815 (0) Dreamobjects chunked upload: 46.2 % uploaded (6, d5f1f9c18146dd6c0a6d9b822e50be04)
+0012.038 (0) Dreamobjects chunked upload: 53.8 % uploaded (7, 10a23b15025ef33723d376e871513f0a)
+0012.294 (0) Dreamobjects chunked upload: 61.5 % uploaded (8, 7a2b9de8558b54418ddb9dd6596d7dd2)
+0012.445 (0) Dreamobjects chunked upload: 69.2 % uploaded (9, 5f2e9f9b616e8b9034d06af3d2060f35)
+0012.712 (0) Dreamobjects chunked upload: 76.9 % uploaded (10, feb9b5b2891c4975d045830b039e19c9)
+0013.126 (0) Dreamobjects chunked upload: 84.6 % uploaded (11, bc4080d73eeafa18c7b4602b909bc315)
+0013.382 (0) Dreamobjects chunked upload: 92.3 % uploaded (12, 11241baac3748dd40874864ec70dea5d)
+0013.592 (0) Dreamobjects chunked upload: 100 % uploaded (13, e0b90b86eab721696b1c263eaa17ddb6)
+0013.595 (0) DreamObjects: upload: all chunks uploaded; will now instruct DreamObjects to re-assemble
+0013.734 (0) DreamObjects: upload (plugins0): re-assembly succeeded
+0013.736 (0) Recording as successfully uploaded: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip
+0013.746 (0) Deleting local file: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip: OK
+0013.752 (0) Beginning creation of dump of themes (split every: 500 MB)
+0013.802 (0) Total entities for the zip file: 129 directories, 835 files (0 skipped as non-modified), 27.5 MB
+0013.815 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0013.825 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0013.834 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-themes.zip.tmp: 300 files added (on-disk size: 0 KB)
+0013.844 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-themes.zip.tmp: 400 files added (on-disk size: 0 KB)
+0013.855 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-themes.zip.tmp: 500 files added (on-disk size: 0 KB)
+0013.868 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-themes.zip.tmp: 600 files added (on-disk size: 0 KB)
+0013.880 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-themes.zip.tmp: 700 files added (on-disk size: 0 KB)
+0013.888 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-themes.zip.tmp: 800 files added (on-disk size: 0 KB)
+0014.857 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-themes.zip.tmp: size is now: 23.20 MB
+0014.864 (0) Creating zip file manifest (backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-themes.zip.list-temp.tmp)
+0014.870 (0) Successfully created zip file manifest (size: 58153)
+0014.960 (0) Created themes zip (0) - 23794.3 KB in 1.2 s (19740.4 KB/s) (sha1: 4290d7f7146d5efa252bd992d1b73561dd6a3d96, sha256: 2914a44389e43c92b28b45a6ce5cb64213c5dfa225ae4b87e12e603afb2d4896)
+0014.965 (0) Cloud backup selection (1/1): dreamobjects with instance (1/1) (last)
+0014.967 (0) Beginning dispatch of backup to remote (dreamobjects) (instance identifier s-1f55a6a76b3296c69634839725065079)
+0014.970 (0) Set endpoint (UpdraftPlus_S3): s3.us-east-005.dream.io
+0015.012 (0) DreamObjects: upload (us-east-005): backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-themes.zip (chunks: 5) -> dreamobjects://backups-7508/casaverdepucon.com/backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-themes.zip
+0015.064 (0) DreamObjects: chunked upload: got multipart ID: 4_z93a0f615f75916219474051a_f20006ce992ac3770_d20260422_m023234_c005_v0501015_t0031_u01776825154352
+0015.248 (0) Dreamobjects chunked upload: 20 % uploaded (1, 664a97810fbc76c18b8572cf42c7ff56)
+0015.967 (0) Dreamobjects chunked upload: 40 % uploaded (2, 075f2fc98283d77afa7b324cea505c6e)
+0016.367 (0) Dreamobjects chunked upload: 60 % uploaded (3, bdbff0f54359d74187d5936d339bb239)
+0016.723 (0) Dreamobjects chunked upload: 80 % uploaded (4, 842fd86c4eec96df9c39631232a7e75b)
+0017.467 (0) Dreamobjects chunked upload: 100 % uploaded (5, 092eae29ad3bd5cd598af686164adc5a)
+0017.472 (0) DreamObjects: upload: all chunks uploaded; will now instruct DreamObjects to re-assemble
+0017.606 (0) DreamObjects: upload (themes0): re-assembly succeeded
+0017.607 (0) Recording as successfully uploaded: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-themes.zip
+0017.615 (0) Deleting local file: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-themes.zip: OK
+0017.623 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone
+0017.623 (0) Looking for candidates to backup in: /home/dh_g8vmkg/casaverdepucon.com/wp-content/uploads
+0017.625 (0) finding files: 2012: adding to list (1)
+0017.625 (0) finding files: 2013: adding to list (2)
+0017.626 (0) finding files: 2014: adding to list (3)
+0017.627 (0) finding files: 2015: adding to list (4)
+0017.628 (0) finding files: 2016: adding to list (5)
+0017.629 (0) finding files: 2017: adding to list (6)
+0017.630 (0) finding files: 2018: adding to list (7)
+0017.631 (0) finding files: 2019: adding to list (8)
+0017.632 (0) finding files: 2020: adding to list (9)
+0017.633 (0) finding files: 2021: adding to list (10)
+0017.635 (0) finding files: 2022: adding to list (11)
+0017.636 (0) finding files: 2023: adding to list (12)
+0017.637 (0) finding files: 2024: adding to list (13)
+0017.637 (0) finding files: aioseo-logs: adding to list (14)
+0017.638 (0) finding files: aioseo: adding to list (15)
+0017.645 (0) finding files: bws-custom-code: adding to list (16)
+0017.647 (0) finding files: mainwp: adding to list (17)
+0017.648 (0) finding files: pagelines: adding to list (18)
+0017.649 (0) finding files: smush: adding to list (19)
+0017.650 (0) finding files: sucuri: adding to list (20)
+0017.666 (0) finding files: .htaccess: adding to list (21)
+0017.681 (0) finding files: index.php: adding to list (22)
+0017.685 (0) finding files: 2025: adding to list (23)
+0017.711 (0) finding files: 2026: adding to list (24)
+0017.721 (0) Beginning creation of dump of uploads (split every: 500 MB)
+0017.807 (0) Total entities for the zip file: 188 directories, 1666 files (0 skipped as non-modified), 231.2 MB
+0017.820 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)
+0017.829 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip.tmp: 200 files added (on-disk size: 0 KB)
+0017.839 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip.tmp: 300 files added (on-disk size: 0 KB)
+0017.848 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip.tmp: 400 files added (on-disk size: 0 KB)
+0017.860 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip.tmp: 500 files added (on-disk size: 0 KB)
+0017.867 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 53.4 MB added on this batch (53.6 MB, 1666 files batched, 583 (583) added so far); re-opening (prior size: 0 KB)
+0018.393 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip.tmp: size is now: 53.70 MB
+0018.397 (0) A useful amount of data was added after this amount of zip processing: 0.7 s (normalised: 0.7 s, rate: 78353.1 KB/s)
+0018.399 (0) Performance is good - will increase the amount of data we attempt to batch (time=0.70051002502441, normalised_time=0.69851843920606, max_time=18.397213935852, data points known=1, old_max_bytes=56044614, new_max_bytes=209715200)
+0018.404 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip.tmp: 600 files added (on-disk size: 55034 KB)
+0018.416 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip.tmp: 700 files added (on-disk size: 55034 KB)
+0018.432 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip.tmp: 800 files added (on-disk size: 55034 KB)
+0018.445 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip.tmp: 900 files added (on-disk size: 55034 KB)
+0018.454 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip.tmp: 1000 files added (on-disk size: 55034 KB)
+0018.464 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip.tmp: 1100 files added (on-disk size: 55034 KB)
+0018.477 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip.tmp: 1200 files added (on-disk size: 55034 KB)
+0018.491 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip.tmp: 1300 files added (on-disk size: 55034 KB)
+0018.503 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip.tmp: 1400 files added (on-disk size: 55034 KB)
+0018.519 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip.tmp: 1500 files added (on-disk size: 55034 KB)
+0018.530 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 1000 files added on this batch (163.1 MB, 1666 files batched, 1001 (1584) added so far); re-opening (prior size: 55034 KB)
+0019.923 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip.tmp: size is now: 217.00 MB
+0019.929 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip.tmp: 1600 files added (on-disk size: 222244.5 KB)
+0020.743 (0) Creating zip file manifest (backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip.list-temp.tmp)
+0020.753 (0) Successfully created zip file manifest (size: 89410)
+0021.540 (0) Created uploads zip (0) - 228421.2 KB in 3.8 s (59980.9 KB/s) (sha1: cd2ff69594b3bb4457af05c3e5c81989f446b2c4, sha256: 51901091d9a7ad162b5bd8b928ab8df187b360e9e01b6f86bb2ed95af1a4867f)
+0021.546 (0) Cloud backup selection (1/1): dreamobjects with instance (1/1) (last)
+0021.547 (0) Beginning dispatch of backup to remote (dreamobjects) (instance identifier s-1f55a6a76b3296c69634839725065079)
+0021.548 (0) Set endpoint (UpdraftPlus_S3): s3.us-east-005.dream.io
+0021.654 (0) DreamObjects: upload (us-east-005): backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip (chunks: 45) -> dreamobjects://backups-7508/casaverdepucon.com/backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip
+0021.777 (0) DreamObjects: chunked upload: got multipart ID: 4_z93a0f615f75916219474051a_f20049d68624ca7fa_d20260422_m023241_c005_v0501043_t0038_u01776825161018
+0021.998 (0) Dreamobjects chunked upload: 2.2 % uploaded (1, 4e2ba064aff2468956e91b5d57743c35)
+0022.182 (0) Dreamobjects chunked upload: 4.4 % uploaded (2, 32207ebc682bffb976370ffdb0b54824)
+0022.501 (0) Dreamobjects chunked upload: 6.7 % uploaded (3, 7a6bee594d1f2efb43cec8912f25dd1d)
+0022.972 (0) Dreamobjects chunked upload: 8.9 % uploaded (4, cd28a8f1082229d20e85e49c84e35a3a)
+0023.286 (0) Dreamobjects chunked upload: 11.1 % uploaded (5, 637c3df7f24733067f6d95e08251267b)
+0023.451 (0) Dreamobjects chunked upload: 13.3 % uploaded (6, b8c87ef2ca186e7fea8dfda269a46ee5)
+0023.758 (0) Dreamobjects chunked upload: 15.6 % uploaded (7, a8bfb0be4e94112741e789ffd05f9e60)
+0023.982 (0) Dreamobjects chunked upload: 17.8 % uploaded (8, eb4606059a1fbfce467fc99337c071c2)
+0024.217 (0) Dreamobjects chunked upload: 20 % uploaded (9, c52da6339efe28cf4655acb03b23ac57)
+0024.516 (0) Dreamobjects chunked upload: 22.2 % uploaded (10, 4c2170fddc457f65135c4913535cc188)
+0024.809 (0) Dreamobjects chunked upload: 24.4 % uploaded (11, 9f8d73670fd5e069c87b5fd8edb189a6)
+0025.076 (0) Dreamobjects chunked upload: 26.7 % uploaded (12, a766711483178cc8f4b377586168b3ac)
+0025.300 (0) Dreamobjects chunked upload: 28.9 % uploaded (13, 84ddc3f16b20556d128c5a91da0eff24)
+0025.866 (0) Dreamobjects chunked upload: 31.1 % uploaded (14, 38f09b0e76d1865443387fe885449298)
+0026.073 (0) Dreamobjects chunked upload: 33.3 % uploaded (15, 0e4bcc02712955fb6377b6c10d06a1a3)
+0026.309 (0) Dreamobjects chunked upload: 35.6 % uploaded (16, 9ecd0d987a76da234e7dd0383478e7e7)
+0026.563 (0) Dreamobjects chunked upload: 37.8 % uploaded (17, c68ec58180c516a82a573cf4e4de90ec)
+0026.765 (0) Dreamobjects chunked upload: 40 % uploaded (18, 419fe8f32a41da901e259e9365e9d6fb)
+0027.067 (0) Dreamobjects chunked upload: 42.2 % uploaded (19, 0434ca0f7bfddd1eb2d37aefb66756a1)
+0027.378 (0) Dreamobjects chunked upload: 44.4 % uploaded (20, 94aa10b14d9bf80707b908be25d7998d)
+0027.705 (0) Dreamobjects chunked upload: 46.7 % uploaded (21, 5972084417dc98a090ea4d0b8d32fdaf)
+0027.920 (0) Dreamobjects chunked upload: 48.9 % uploaded (22, 625cbcaa4164c001c2b0b85fa90e7898)
+0028.264 (0) Dreamobjects chunked upload: 51.1 % uploaded (23, fd248efb5607fe9ff744ce11fdc4764a)
+0028.764 (0) Dreamobjects chunked upload: 53.3 % uploaded (24, 2e7f5913157d91aafac4c2461e10f307)
+0029.032 (0) Dreamobjects chunked upload: 55.6 % uploaded (25, d4edd2d4972362cbd7da48f137a0556b)
+0029.306 (0) Dreamobjects chunked upload: 57.8 % uploaded (26, c080860312baea03c7e7037a28ca7ed2)
+0029.529 (0) Dreamobjects chunked upload: 60 % uploaded (27, 5858b5324fc7a070e3a85f9bf391d7ec)
+0029.796 (0) Dreamobjects chunked upload: 62.2 % uploaded (28, 9cad640614a90672b424a3915b2ba7d3)
+0030.400 (0) Dreamobjects chunked upload: 64.4 % uploaded (29, 9847cae6351ceabc490990016bada160)
+0030.714 (0) Dreamobjects chunked upload: 66.7 % uploaded (30, 6c3041099fd2f5348eb2f1f26fcf3e8d)
+0030.966 (0) Dreamobjects chunked upload: 68.9 % uploaded (31, 292faa6d6c079aa945a76ff684fe6429)
+0031.156 (0) Dreamobjects chunked upload: 71.1 % uploaded (32, 244e4e1d0a29cb780972ee66be089768)
+0031.422 (0) Dreamobjects chunked upload: 73.3 % uploaded (33, 26f1084602d2fac8089d1a1697397725)
+0031.577 (0) Dreamobjects chunked upload: 75.6 % uploaded (34, bbb9e0dc1163659bed4f838e44eeba8d)
+0031.798 (0) Dreamobjects chunked upload: 77.8 % uploaded (35, 6fa5c0594f71d0524b55330ba4efb90d)
+0032.098 (0) Dreamobjects chunked upload: 80 % uploaded (36, 6a5c65b9f3b19a6d70aaffa3c6ae3d2a)
+0032.320 (0) Dreamobjects chunked upload: 82.2 % uploaded (37, 73dac26cf06fb2d0008f7a22352bcd87)
+0032.589 (0) Dreamobjects chunked upload: 84.4 % uploaded (38, f20ca0693745f0f8a2ab3f5a75cd4c90)
+0032.800 (0) Dreamobjects chunked upload: 86.7 % uploaded (39, 152fc4fea7131eeefdd2b16a5ac0256d)
+0033.087 (0) Dreamobjects chunked upload: 88.9 % uploaded (40, 07075889d22bce3f7d82cf661114d390)
+0033.417 (0) Dreamobjects chunked upload: 91.1 % uploaded (41, c12863bb9ce805f5e3d62f64f23d8e62)
+0033.786 (0) Dreamobjects chunked upload: 93.3 % uploaded (42, b4821ccd61d79b6f88f75c0f8524300c)
+0034.091 (0) Dreamobjects chunked upload: 95.6 % uploaded (43, 2d5e98cb42535943357c1234613e0bce)
+0034.480 (0) Dreamobjects chunked upload: 97.8 % uploaded (44, fd3352839eb7865691955e0948dbb643)
+0035.161 (0) Dreamobjects chunked upload: 100 % uploaded (45, c6a6b28aa60bf8e32105c5dd8c30d396)
+0035.165 (0) DreamObjects: upload: all chunks uploaded; will now instruct DreamObjects to re-assemble
+0035.244 (0) DreamObjects: upload (uploads0): re-assembly succeeded
+0035.246 (0) Recording as successfully uploaded: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip
+0035.313 (0) Deleting local file: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip: OK
+0035.315 (0) No backup of mu-plugins: excluded by user's options
+0035.317 (0) Beginning backup of other directories found in the content directory (index: 0)
+0035.318 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql
+0035.319 (0) Looking for candidates to backup in: /home/dh_g8vmkg/casaverdepucon.com/wp-content
+0035.319 (0) finding files: gallery: adding to list (1)
+0035.320 (0) finding files: languages: adding to list (2)
+0035.321 (0) finding files: mu-plugins: skipping: this is the mu-plugins directory
+0035.322 (0) finding files: ngg: adding to list (3)
+0035.323 (0) finding files: plugins: skipping: this is the plugins directory
+0035.324 (0) finding files: themes: skipping: this is the themes directory
+0035.325 (0) finding files: updraft: skipping: this is the updraft directory
+0035.326 (0) finding files: upgrade-temp-backup: adding to list (4)
+0035.327 (0) finding files: upgrade: skipping: excluded by options
+0035.327 (0) finding files: uploads: skipping: this is the uploads directory
+0035.328 (0) finding files: wflogs: adding to list (5)
+0035.329 (0) finding files: .htaccess: adding to list (6)
+0035.329 (0) finding files: index.php: adding to list (7)
+0035.387 (0) Total entities for the zip file: 97 directories, 1239 files (0 skipped as non-modified), 440 MB
+0035.397 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-others.zip.tmp: 100 files added (on-disk size: 0 KB)
+0035.406 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-others.zip.tmp: 200 files added (on-disk size: 0 KB)
+0035.415 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-others.zip.tmp: 300 files added (on-disk size: 0 KB)
+0035.425 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-others.zip.tmp: 400 files added (on-disk size: 0 KB)
+0035.434 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-others.zip.tmp: 500 files added (on-disk size: 0 KB)
+0035.437 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 200 MB added on this batch (201.6 MB, 1239 files batched, 514 (514) added so far); re-opening (prior size: 0 KB)
+0041.850 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-others.zip.tmp: size is now: 196.70 MB
+0041.853 (0) A useful amount of data was added after this amount of zip processing: 7.2 s (normalised: 7.1 s, rate: 28843.8 KB/s)
+0041.864 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-others.zip.tmp: 600 files added (on-disk size: 201427.1 KB)
+0041.871 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-others.zip.tmp: 700 files added (on-disk size: 201427.1 KB)
+0041.879 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-others.zip.tmp: 800 files added (on-disk size: 201427.1 KB)
+0041.887 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-others.zip.tmp: 900 files added (on-disk size: 201427.1 KB)
+0041.895 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-others.zip.tmp: 1000 files added (on-disk size: 201427.1 KB)
+0041.898 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 200 MB added on this batch (200.6 MB, 1239 files batched, 509 (1023) added so far); re-opening (prior size: 201427.1 KB)
+0048.749 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-others.zip.tmp: size is now: 392.40 MB
+0048.752 (0) A useful amount of data was added after this amount of zip processing: 7.1 s (normalised: 7 s, rate: 29107.9 KB/s)
+0048.761 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-others.zip.tmp: 1100 files added (on-disk size: 401777.2 KB)
+0048.769 (0) Zip: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-others.zip.tmp: 1200 files added (on-disk size: 401777.2 KB)
+0051.622 (0) Creating zip file manifest (backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-others.zip.list-temp.tmp)
+0051.627 (0) Successfully created zip file manifest (size: 75510)
+0053.317 (0) Created others zip (0) - 425960.9 KB in 18 s (23689.1 KB/s) (sha1: fcd9e66ba83202f24128d0a865c396bf1ba34c36, sha256: a50ea44974c60b053fa72778ee8d825298915771024628ac48c2896dfe8655e0)
+0053.325 (0) Cloud backup selection (1/1): dreamobjects with instance (1/1) (last)
+0053.327 (0) Beginning dispatch of backup to remote (dreamobjects) (instance identifier s-1f55a6a76b3296c69634839725065079)
+0053.328 (0) Set endpoint (UpdraftPlus_S3): s3.us-east-005.dream.io
+0053.438 (0) DreamObjects: upload (us-east-005): backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-others.zip (chunks: 84) -> dreamobjects://backups-7508/casaverdepucon.com/backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-others.zip
+0053.495 (0) DreamObjects: chunked upload: got multipart ID: 4_z93a0f615f75916219474051a_f20057c9a1dc7a175_d20260422_m023312_c005_v0501036_t0035_u01776825192791
+0054.227 (0) Dreamobjects chunked upload: 1.2 % uploaded (1, 160ef931aa504af18fcd0c9b3316264b)
+0054.769 (0) Dreamobjects chunked upload: 2.4 % uploaded (2, 6080d5d82c826c8edf26b27718e8ade9)
+0055.520 (0) Dreamobjects chunked upload: 3.6 % uploaded (3, c0cf4c69e86d0a1ad8c495783a462c23)
+0056.118 (0) Dreamobjects chunked upload: 4.8 % uploaded (4, b769c04662defdc3a5b8f854e356969f)
+0056.591 (0) Dreamobjects chunked upload: 6 % uploaded (5, 4b04794514fab3272a6d528ef19b4d9c)
+0057.349 (0) Dreamobjects chunked upload: 7.1 % uploaded (6, ed8f041ba4feed47746c938ca55b79c7)
+0057.855 (0) Dreamobjects chunked upload: 8.3 % uploaded (7, ca2f3b7f8effd9e2c41a403d21c26708)
+0058.452 (0) Dreamobjects chunked upload: 9.5 % uploaded (8, a2d0459248f8885f464e2764094e2ed7)
+0059.009 (0) Dreamobjects chunked upload: 10.7 % uploaded (9, 667719c6bfe411fd146687093fbb42e1)
+0059.888 (0) Dreamobjects chunked upload: 11.9 % uploaded (10, 35290d700804a02d1244e50f459873ff)
+0060.548 (0) Dreamobjects chunked upload: 13.1 % uploaded (11, 6142b670f7485e9ceb9a180e21173357)
+0061.366 (0) Dreamobjects chunked upload: 14.3 % uploaded (12, 61f7e869a688997d247a56b9d9b03531)
+0062.721 (0) Dreamobjects chunked upload: 15.5 % uploaded (13, f372e86add5eaced0ec8a68922f67901)
+0063.511 (0) Dreamobjects chunked upload: 16.7 % uploaded (14, e887c17bbad24bbab1c4b7672483200c)
+0064.259 (0) Dreamobjects chunked upload: 17.9 % uploaded (15, 120ea8dc4d291719a32e619e0f662a23)
+0064.826 (0) Dreamobjects chunked upload: 19 % uploaded (16, 6e3d3ed8c2168bcc53ef7e8e9b921cb6)
+0065.565 (0) Dreamobjects chunked upload: 20.2 % uploaded (17, d3ccbe0f91eb13336c2381ae128bdb84)
+0066.129 (0) Dreamobjects chunked upload: 21.4 % uploaded (18, f9e646c31bf1b2a3509d9ad78bdd5f9c)
+0066.672 (0) Dreamobjects chunked upload: 22.6 % uploaded (19, 1d82126bc023ac91103b50b41684f825)
+0067.347 (0) Dreamobjects chunked upload: 23.8 % uploaded (20, 83e3c1dfd3ec0b01fd47c5e974a0956f)
+0068.181 (0) Dreamobjects chunked upload: 25 % uploaded (21, 792c87e14e261aee65289cdcb82d759b)
+0068.851 (0) Dreamobjects chunked upload: 26.2 % uploaded (22, 81b83909c89fcbff6ebaa38d02975595)
+0069.577 (0) Dreamobjects chunked upload: 27.4 % uploaded (23, 365dada303efc4ffa969eb99ce9fedd3)
+0070.429 (0) Dreamobjects chunked upload: 28.6 % uploaded (24, 242db07245e14305069b79ddaf603a31)
+0070.940 (0) Dreamobjects chunked upload: 29.8 % uploaded (25, 4bfc5738797947ccf40aeb899ee49d67)
+0071.884 (0) Dreamobjects chunked upload: 31 % uploaded (26, 5d8200be3efb29195a947a57c198fa8f)
+0073.006 (0) Dreamobjects chunked upload: 32.1 % uploaded (27, 271365e4f247c61d6b111e22b0973c6c)
+0075.600 (0) Dreamobjects chunked upload: 33.3 % uploaded (28, aba93b3c5db64fbec8c2eba5872384c9)
+0076.218 (0) Dreamobjects chunked upload: 34.5 % uploaded (29, 6e6c0a4f6f089ae05a35b91d8e490fa8)
+0076.735 (0) Dreamobjects chunked upload: 35.7 % uploaded (30, 875fde0302b6075d227ea7d82226cc59)
+0077.574 (0) Dreamobjects chunked upload: 36.9 % uploaded (31, 4a7ff5973fe7d68872c597427b38824b)
+0078.150 (0) Dreamobjects chunked upload: 38.1 % uploaded (32, bcd9bd60fe90ff67a4425af3f5f9d5e0)
+0078.719 (0) Dreamobjects chunked upload: 39.3 % uploaded (33, 2434cc9b59c864939eb3f7ac5e236674)
+0079.311 (0) Dreamobjects chunked upload: 40.5 % uploaded (34, b873aeba52ba78c2766b3d5f40a6af0b)
+0080.063 (0) Dreamobjects chunked upload: 41.7 % uploaded (35, adf3802d00b9e63b55f53a8bd4a28d53)
+0080.613 (0) Dreamobjects chunked upload: 42.9 % uploaded (36, 14e9bbd4b6423328f73d60850cd55cb5)
+0081.284 (0) Dreamobjects chunked upload: 44 % uploaded (37, 0035ed4b0f88aceda059275d178d386c)
+0081.927 (0) Dreamobjects chunked upload: 45.2 % uploaded (38, c32255c0767e6e2890361a05985b575c)
+0082.450 (0) Dreamobjects chunked upload: 46.4 % uploaded (39, 3a78245263dc374bd177a097fc88df04)
+0083.735 (0) Dreamobjects chunked upload: 47.6 % uploaded (40, 44002dfdeee6a085cde82d25c42c9e0f)
+0084.552 (0) Dreamobjects chunked upload: 48.8 % uploaded (41, fb33902979befc81daf8dcd6c1fb8006)
+0085.645 (0) Dreamobjects chunked upload: 50 % uploaded (42, 10df8a6c301037df4cf382f31e3dc997)
+0086.726 (0) Dreamobjects chunked upload: 51.2 % uploaded (43, 9324c7cc5869f9e669d9448591309f85)
+0087.733 (0) Dreamobjects chunked upload: 52.4 % uploaded (44, b63e4bb45b4e531231a217c971f0391f)
+0088.937 (0) Dreamobjects chunked upload: 53.6 % uploaded (45, 88f046f2aeab4072c9c4c7a0b39f18cb)
+0089.739 (0) Dreamobjects chunked upload: 54.8 % uploaded (46, d924ccc417ef1674739bcb7efc971814)
+0090.296 (0) Dreamobjects chunked upload: 56 % uploaded (47, c6c6f088ba3c9feed0d50c356e9333f4)
+0091.136 (0) Dreamobjects chunked upload: 57.1 % uploaded (48, 59578f47ae9d51c1f4eeb67c57d5404d)
+0091.707 (0) Dreamobjects chunked upload: 58.3 % uploaded (49, 5114f5f6dcf3bf379754b9e1819c3a2a)
+0092.449 (0) Dreamobjects chunked upload: 59.5 % uploaded (50, 38d51ac436a019df046eaf81420a6114)
+0093.831 (0) Dreamobjects chunked upload: 60.7 % uploaded (51, 5d8c7256309090d88c3f4c655b3857a6)
+0094.332 (0) Dreamobjects chunked upload: 61.9 % uploaded (52, bb940ec36601635c22d2671d7c067815)
+0096.057 (0) Dreamobjects chunked upload: 63.1 % uploaded (53, 35b5ac7080065ec976a82a52eff551b3)
+0097.337 (0) Dreamobjects chunked upload: 64.3 % uploaded (54, 254883ef931fd4b4fbd8ee6453284148)
+0099.556 (0) Dreamobjects chunked upload: 65.5 % uploaded (55, 8d72f5e34140010ef09e9cf867d436e9)
+0100.057 (0) Dreamobjects chunked upload: 66.7 % uploaded (56, 323b7e3e555dcbd48339609ae90091a7)
+0100.879 (0) Dreamobjects chunked upload: 67.9 % uploaded (57, 90efd44c381b903fbe905dff52d2a40c)
+0101.972 (0) Dreamobjects chunked upload: 69 % uploaded (58, 3996f83f664b6a17cddd77e5c36ee006)
+0103.878 (0) Dreamobjects chunked upload: 70.2 % uploaded (59, fe19e75476c2ea8fc802839c4396558b)
+0104.742 (0) Dreamobjects chunked upload: 71.4 % uploaded (60, 1b3d577fd8a1e99e338775e54306d0d0)
+0105.395 (0) Dreamobjects chunked upload: 72.6 % uploaded (61, 3359853c1fb7104b3022030802a28130)
+0106.673 (0) Dreamobjects chunked upload: 73.8 % uploaded (62, 4be300d5dac74eec20756a90d1945995)
+0107.531 (0) Dreamobjects chunked upload: 75 % uploaded (63, 11cd25fde10ae9127bf09923c77820da)
+0110.341 (0) Dreamobjects chunked upload: 76.2 % uploaded (64, 4dc5ea97f6f97c312770d1d6481a3994)
+0111.105 (0) Dreamobjects chunked upload: 77.4 % uploaded (65, 36c01e2e7cea738d5308a19ca716a81b)
+0112.080 (0) Dreamobjects chunked upload: 78.6 % uploaded (66, ed59bf61eb185bb7958c8c4e3f64be9e)
+0112.801 (0) Dreamobjects chunked upload: 79.8 % uploaded (67, 6461f7908ba597374a6b095517d42f79)
+0113.514 (0) Dreamobjects chunked upload: 81 % uploaded (68, f5396009033f9e600e5112e0b074a76f)
+0114.731 (0) Dreamobjects chunked upload: 82.1 % uploaded (69, 89a4ee952c5997dca76edb86aa235064)
+0115.898 (0) Dreamobjects chunked upload: 83.3 % uploaded (70, 6c920746396a6162fcba628d456b17a1)
+0116.707 (0) Dreamobjects chunked upload: 84.5 % uploaded (71, 6172d2c8168acde9d2ab613151a005b6)
+0117.120 (0) Dreamobjects chunked upload: 85.7 % uploaded (72, 078a6d75cb95a417c945c94f18fa719a)
+0117.832 (0) Dreamobjects chunked upload: 86.9 % uploaded (73, 6f7db1b42210b3bb65bb91dea0dfa051)
+0118.283 (0) Dreamobjects chunked upload: 88.1 % uploaded (74, 7623e8c3db0259639fcc58b10c7647a5)
+0118.915 (0) Dreamobjects chunked upload: 89.3 % uploaded (75, 88a3bf47c52bc12d0e9ace9282a881e0)
+0119.788 (0) Dreamobjects chunked upload: 90.5 % uploaded (76, 0717b7c6c1e55744523cc27cbaa9f1f3)
+0120.455 (0) Dreamobjects chunked upload: 91.7 % uploaded (77, 5573e3bfa10e6bcd5b6ff42158b5fb34)
+0121.036 (0) Dreamobjects chunked upload: 92.9 % uploaded (78, bc3a925d32a96c58d1c72ad1541b4f73)
+0122.291 (0) Dreamobjects chunked upload: 94 % uploaded (79, ba0a971094351ab3c8eef48b54efacbe)
+0123.013 (0) Dreamobjects chunked upload: 95.2 % uploaded (80, 1021c562ffe97fd058907d1caa2e3a7d)
+0124.010 (0) Dreamobjects chunked upload: 96.4 % uploaded (81, 5d6d0c8b75b806a38168c31751afe700)
+0125.173 (0) Dreamobjects chunked upload: 97.6 % uploaded (82, 4d8c43013251dca8a0b0c926766a4cf7)
+0126.123 (0) Dreamobjects chunked upload: 98.8 % uploaded (83, ec71ded4a0819b6d0e17ac49c23dd762)
+0126.511 (0) Dreamobjects chunked upload: 100 % uploaded (84, 10eee6ab161413f11b184889d06db62d)
+0126.516 (0) DreamObjects: upload: all chunks uploaded; will now instruct DreamObjects to re-assemble
+0126.643 (0) DreamObjects: upload (others0): re-assembly succeeded
+0126.645 (0) Recording as successfully uploaded: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-others.zip
+0126.762 (0) Deleting local file: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-others.zip: OK
+0126.773 (0) Saving backup status to database (elements: 8)
+0126.776 (0) Beginning creation of database dump (WordPress DB)
+0126.778 (0) SQL compatibility mode is: NO_ENGINE_SUBSTITUTION
+0126.780 (0) Testing potential mysqldump binary: /usr/bin/mysqldump
+0126.839 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `wp_25apjn_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!50503 SET character_set_client = utf8m (truncated - 1628 bytes total)
+0126.841 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0126.864 (0) Table wp_25apjn_options: Total expected rows (via COUNT): 491
+0126.865 (0) Table is relatively small; fetch_rows will thus be: 500 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0126.881 (0) Table wp_25apjn_options: Rows added in this batch (next record: 2871763): 487 (uncompressed bytes in this segment=275187) in 0.03 seconds
+0126.889 (0) Table wp_25apjn_options: finishing file(s) (2, 49 KB)
+0126.899 (0) Table wp_25apjn_users: Total expected rows (via COUNT): 2
+0126.901 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0126.904 (0) Table wp_25apjn_users: Rows added in this batch (next record: 2): 2 (uncompressed bytes in this segment=1746) in 0.01 seconds
+0126.909 (0) Table wp_25apjn_users: finishing file(s) (2, 0.7 KB)
+0126.921 (0) Table wp_25apjn_usermeta: Total expected rows (via COUNT): 87
+0126.922 (0) Table is relatively small; fetch_rows will thus be: 100 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0126.930 (0) Table wp_25apjn_usermeta: Rows added in this batch (next record: 116): 87 (uncompressed bytes in this segment=12519) in 0.01 seconds
+0126.938 (0) Table wp_25apjn_usermeta: finishing file(s) (2, 4.5 KB)
+0126.949 (0) Table wp_25apjn_actionscheduler_actions: Total expected rows (via COUNT): 38
+0126.950 (0) Table is relatively small; fetch_rows will thus be: 50 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0126.954 (0) Table wp_25apjn_actionscheduler_actions: Rows added in this batch (next record: 149848): 38 (uncompressed bytes in this segment=21341) in 0.01 seconds
+0126.962 (0) Table wp_25apjn_actionscheduler_actions: finishing file(s) (2, 2.2 KB)
+0126.969 (0) Table wp_25apjn_actionscheduler_claims: Total expected rows (via COUNT): 9
+0126.970 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0126.974 (0) Table wp_25apjn_actionscheduler_claims: Rows added in this batch (next record: 121132): 9 (uncompressed bytes in this segment=1028) in 0.01 seconds
+0126.982 (0) Table wp_25apjn_actionscheduler_claims: finishing file(s) (2, 0.5 KB)
+0126.992 (0) Table wp_25apjn_actionscheduler_groups: Total expected rows (via COUNT): 3
+0126.994 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0126.995 (0) Table wp_25apjn_actionscheduler_groups: Rows added in this batch (next record: 3): 3 (uncompressed bytes in this segment=797) in 0.01 seconds
+0127.000 (0) Table wp_25apjn_actionscheduler_groups: finishing file(s) (2, 0.4 KB)
+0127.007 (0) Table wp_25apjn_actionscheduler_logs: Total expected rows (approximate): 32332
+0127.186 (0) Table wp_25apjn_actionscheduler_logs: binary mysqldump finished (writes: 35, bytes 2652779, return code 0) in 0.18 seconds
+0127.196 (0) Table wp_25apjn_actionscheduler_logs: finishing file(s) (1, 285.7 KB)
+0127.215 (0) Table wp_25apjn_commentmeta: Total expected rows (via COUNT): 4
+0127.216 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0127.217 (0) Table wp_25apjn_commentmeta: Rows added in this batch (next record: 7): 4 (uncompressed bytes in this segment=1340) in 0.01 seconds
+0127.223 (0) Table wp_25apjn_commentmeta: finishing file(s) (2, 0.7 KB)
+0127.235 (0) Table wp_25apjn_comments: Total expected rows (via COUNT): 2
+0127.237 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0127.239 (0) Table wp_25apjn_comments: Rows added in this batch (next record: 2): 2 (uncompressed bytes in this segment=2489) in 0.01 seconds
+0127.250 (0) Table wp_25apjn_comments: finishing file(s) (2, 0.9 KB)
+0127.266 (0) Table wp_25apjn_links: Total expected rows (via COUNT): 7
+0127.268 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0127.271 (0) Table wp_25apjn_links: Rows added in this batch (next record: 7): 7 (uncompressed bytes in this segment=2384) in 0.01 seconds
+0127.275 (0) Table wp_25apjn_links: finishing file(s) (2, 0.7 KB)
+0127.300 (0) Table wp_25apjn_postmeta: Total expected rows (approximate): 4092
+0127.355 (0) Table wp_25apjn_postmeta: Rows added in this batch (next record: 11243): 4092 (uncompressed bytes in this segment=824557) in 0.07 seconds
+0127.362 (0) Table wp_25apjn_postmeta: finishing file(s) (2, 85.3 KB)
+0127.377 (0) Table wp_25apjn_posts: Total expected rows (approximate): 1086
+0127.413 (0) Table wp_25apjn_posts: Rows added in this batch (next record: 1431): 1086 (uncompressed bytes in this segment=634801) in 0.04 seconds
+0127.420 (0) Table wp_25apjn_posts: finishing file(s) (2, 80.4 KB)
+0127.428 (0) Table wp_25apjn_term_relationships: Total expected rows (approximate): 161
+0127.431 (0) Table wp_25apjn_term_relationships: Rows added in this batch (next record: 100000): 161 (uncompressed bytes in this segment=3166) in 0.01 seconds
+0127.436 (0) Table wp_25apjn_term_relationships: finishing file(s) (2, 0.8 KB)
+0127.448 (0) Table wp_25apjn_term_taxonomy: Total expected rows (via COUNT): 22
+0127.449 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0127.453 (0) Table wp_25apjn_term_taxonomy: Rows added in this batch (next record: 22): 22 (uncompressed bytes in this segment=1745) in 0.01 seconds
+0127.459 (0) Table wp_25apjn_term_taxonomy: finishing file(s) (2, 0.6 KB)
+0127.476 (0) Table wp_25apjn_termmeta: Total expected rows (via COUNT): 0
+0127.480 (0) Table wp_25apjn_termmeta: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=724) in 0.01 seconds
+0127.485 (0) Table wp_25apjn_termmeta: finishing file(s) (2, 0.4 KB)
+0127.493 (0) Table wp_25apjn_terms: Total expected rows (via COUNT): 22
+0127.494 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0127.497 (0) Table wp_25apjn_terms: Rows added in this batch (next record: 22): 22 (uncompressed bytes in this segment=1432) in 0.01 seconds
+0127.501 (0) Table wp_25apjn_terms: finishing file(s) (2, 0.6 KB)
+0127.515 (0) Table wp_25apjn_aioseo_ai_insights_keyword_reports: Total expected rows (via COUNT): 0
+0127.517 (0) Table wp_25apjn_aioseo_ai_insights_keyword_reports: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1207) in 0.01 seconds
+0127.524 (0) Table wp_25apjn_aioseo_ai_insights_keyword_reports: finishing file(s) (2, 0.5 KB)
+0127.535 (0) Table wp_25apjn_aioseo_cache: Total expected rows (via COUNT): 16
+0127.536 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0127.540 (0) Table wp_25apjn_aioseo_cache: Rows added in this batch (next record: 23031): 16 (uncompressed bytes in this segment=30740) in 0.01 seconds
+0127.547 (0) Table wp_25apjn_aioseo_cache: finishing file(s) (2, 7.4 KB)
+0127.559 (0) Table wp_25apjn_aioseo_crawl_cleanup_blocked_args: Total expected rows (via COUNT): 0
+0127.562 (0) Table wp_25apjn_aioseo_crawl_cleanup_blocked_args: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1169) in 0.01 seconds
+0127.570 (0) Table wp_25apjn_aioseo_crawl_cleanup_blocked_args: finishing file(s) (2, 0.5 KB)
+0127.583 (0) Table wp_25apjn_aioseo_crawl_cleanup_logs: Total expected rows (via COUNT): 0
+0127.585 (0) Table wp_25apjn_aioseo_crawl_cleanup_logs: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1005) in 0.01 seconds
+0127.590 (0) Table wp_25apjn_aioseo_crawl_cleanup_logs: finishing file(s) (2, 0.4 KB)
+0127.604 (0) Table wp_25apjn_aioseo_notifications: Total expected rows (via COUNT): 93
+0127.605 (0) Table is relatively small; fetch_rows will thus be: 100 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0127.672 (0) Table wp_25apjn_aioseo_notifications: Rows added in this batch (next record: 93): 93 (uncompressed bytes in this segment=1463977) in 0.08 seconds
+0127.750 (0) Table wp_25apjn_aioseo_notifications: finishing file(s) (2, 1045.8 KB)
+0127.771 (0) Table wp_25apjn_aioseo_posts: Total expected rows (via COUNT): 319
+0127.773 (0) Table is relatively small; fetch_rows will thus be: 500 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0127.787 (0) Table wp_25apjn_aioseo_posts: Rows added in this batch (next record: 323): 319 (uncompressed bytes in this segment=338142) in 0.03 seconds
+0127.795 (0) Table wp_25apjn_aioseo_posts: finishing file(s) (2, 12.4 KB)
+0127.809 (0) Table wp_25apjn_aioseo_seo_analyzer_results: Total expected rows (via COUNT): 0
+0127.812 (0) Table wp_25apjn_aioseo_seo_analyzer_results: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=891) in 0.01 seconds
+0127.817 (0) Table wp_25apjn_aioseo_seo_analyzer_results: finishing file(s) (2, 0.4 KB)
+0127.835 (0) Table wp_25apjn_aioseo_writing_assistant_keywords: Total expected rows (via COUNT): 0
+0127.837 (0) Table wp_25apjn_aioseo_writing_assistant_keywords: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1407) in 0.01 seconds
+0127.842 (0) Table wp_25apjn_aioseo_writing_assistant_keywords: finishing file(s) (2, 0.5 KB)
+0127.856 (0) Table wp_25apjn_aioseo_writing_assistant_posts: Total expected rows (via COUNT): 0
+0127.860 (0) Table wp_25apjn_aioseo_writing_assistant_posts: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1101) in 0.01 seconds
+0127.865 (0) Table wp_25apjn_aioseo_writing_assistant_posts: finishing file(s) (2, 0.5 KB)
+0127.879 (0) Table wp_25apjn_cntctfrm_field: Total expected rows (via COUNT): 14
+0127.880 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0127.883 (0) Table wp_25apjn_cntctfrm_field: Rows added in this batch (next record: 14): 14 (uncompressed bytes in this segment=795) in 0.01 seconds
+0127.887 (0) Table wp_25apjn_cntctfrm_field: finishing file(s) (2, 0.5 KB)
+0127.896 (0) Table wp_25apjn_mainwp_child_changes_logs: Total expected rows (approximate): 7275
+0127.978 (0) Table wp_25apjn_mainwp_child_changes_logs: Rows added in this batch (next record: 52892): 7369 (uncompressed bytes in this segment=1239608) in 0.09 seconds
+0127.983 (0) Table wp_25apjn_mainwp_child_changes_logs: finishing file(s) (2, 103.9 KB)
+0127.988 (0) Table wp_25apjn_mainwp_child_changes_meta: Total expected rows (approximate): 43594
+0128.128 (0) Table wp_25apjn_mainwp_child_changes_meta: binary mysqldump finished (writes: 33, bytes 1945109, return code 0) in 0.14 seconds
+0128.132 (0) Table wp_25apjn_mainwp_child_changes_meta: finishing file(s) (1, 251.7 KB)
+0128.152 (0) Table wp_25apjn_ngg_album: Total expected rows (via COUNT): 0
+0128.153 (0) Table wp_25apjn_ngg_album: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=789) in 0.01 seconds
+0128.161 (0) Table wp_25apjn_ngg_album: finishing file(s) (2, 0.4 KB)
+0128.171 (0) Table wp_25apjn_ngg_gallery: Total expected rows (via COUNT): 17
+0128.172 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0128.175 (0) Table wp_25apjn_ngg_gallery: Rows added in this batch (next record: 17): 17 (uncompressed bytes in this segment=5200) in 0.01 seconds
+0128.186 (0) Table wp_25apjn_ngg_gallery: finishing file(s) (2, 1.4 KB)
+0128.204 (0) Table wp_25apjn_ngg_pictures: Total expected rows (via COUNT): 389
+0128.205 (0) Table is relatively small; fetch_rows will thus be: 500 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0128.220 (0) Table wp_25apjn_ngg_pictures: Rows added in this batch (next record: 456): 389 (uncompressed bytes in this segment=268442) in 0.02 seconds
+0128.229 (0) Table wp_25apjn_ngg_pictures: finishing file(s) (2, 24.6 KB)
+0128.241 (0) Table wp_25apjn_smush_dir_images: Total expected rows (via COUNT): 779
+0128.254 (0) Table wp_25apjn_smush_dir_images: Rows added in this batch (next record: 779): 779 (uncompressed bytes in this segment=166949) in 0.02 seconds
+0128.260 (0) Table wp_25apjn_smush_dir_images: finishing file(s) (2, 32.4 KB)
+0128.269 (0) Table wp_25apjn_wfAuditEvents: Total expected rows (via COUNT): 0
+0128.270 (0) Table wp_25apjn_wfAuditEvents: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=742) in 0.01 seconds
+0128.278 (0) Table wp_25apjn_wfAuditEvents: finishing file(s) (2, 0.4 KB)
+0128.288 (0) Table wp_25apjn_wfBlockedIPLog: Total expected rows (approximate): 296
+0128.298 (0) Table wp_25apjn_wfBlockedIPLog: Rows added in this batch (next record: 1000): 296 (uncompressed bytes in this segment=19652) in 0.01 seconds
+0128.304 (0) Table wp_25apjn_wfBlockedIPLog: finishing file(s) (2, 2.9 KB)
+0128.313 (0) Table wp_25apjn_wfBlocks7: Total expected rows (via COUNT): 1
+0128.314 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0128.317 (0) Table wp_25apjn_wfBlocks7: Rows added in this batch (next record: 155378): 1 (uncompressed bytes in this segment=1031) in 0.01 seconds
+0128.322 (0) Table wp_25apjn_wfBlocks7: finishing file(s) (2, 0.5 KB)
+0128.330 (0) Table wp_25apjn_wfConfig: Total expected rows (approximate): 315
+0128.607 (0) Table wp_25apjn_wfConfig: Rows added in this batch (next record: 1000): 315 (uncompressed bytes in this segment=4716826) in 0.28 seconds
+0128.614 (0) Table wp_25apjn_wfConfig: finishing file(s) (2, 1015.9 KB)
+0128.623 (0) Table wp_25apjn_wfCrawlers: Total expected rows (approximate): 0
+0128.624 (0) Table wp_25apjn_wfCrawlers: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=592) in 0.00 seconds
+0128.632 (0) Table wp_25apjn_wfCrawlers: finishing file(s) (2, 0.3 KB)
+0128.640 (0) Table wp_25apjn_wfFileChanges: Total expected rows (approximate): 0
+0128.642 (0) Table wp_25apjn_wfFileChanges: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=497) in 0.00 seconds
+0128.647 (0) Table wp_25apjn_wfFileChanges: finishing file(s) (2, 0.3 KB)
+0128.654 (0) Table wp_25apjn_wfFileMods: Total expected rows (approximate): 11493
+0128.844 (0) Table wp_25apjn_wfFileMods: binary mysqldump finished (writes: 39, bytes 4012129, return code 0) in 0.19 seconds
+0128.850 (0) Table wp_25apjn_wfFileMods: finishing file(s) (1, 1024 KB)
+0128.859 (0) Table wp_25apjn_wfHits: Total expected rows (approximate): 2966
+0128.942 (0) Table wp_25apjn_wfHits: Rows added in this batch (next record: 1565525): 2966 (uncompressed bytes in this segment=729055) in 0.09 seconds
+0128.957 (0) Table wp_25apjn_wfHits: finishing file(s) (2, 54.3 KB)
+0128.972 (0) Table wp_25apjn_wfHoover: Total expected rows (via COUNT): 0
+0128.973 (0) Table wp_25apjn_wfHoover: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=517) in 0.01 seconds
+0128.980 (0) Table wp_25apjn_wfHoover: finishing file(s) (2, 0.3 KB)
+0128.995 (0) Table wp_25apjn_wfIssues: Total expected rows (via COUNT): 10
+0128.996 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0129.000 (0) Table wp_25apjn_wfIssues: Rows added in this batch (next record: 11105): 10 (uncompressed bytes in this segment=10435) in 0.01 seconds
+0129.005 (0) Table wp_25apjn_wfIssues: finishing file(s) (2, 3.4 KB)
+0129.014 (0) Table wp_25apjn_wfKnownFileList: Total expected rows (approximate): 11494
+0129.156 (0) Table wp_25apjn_wfKnownFileList: binary mysqldump finished (writes: 31, bytes 2182411, return code 0) in 0.14 seconds
+0129.160 (0) Table wp_25apjn_wfKnownFileList: finishing file(s) (1, 162.1 KB)
+0129.169 (0) Table wp_25apjn_wfLiveTrafficHuman: Total expected rows (approximate): 3
+0129.173 (0) Table wp_25apjn_wfLiveTrafficHuman: Rows added in this batch (next record: 1000): 3 (uncompressed bytes in this segment=1096) in 0.01 seconds
+0129.179 (0) Table wp_25apjn_wfLiveTrafficHuman: finishing file(s) (2, 0.6 KB)
+0129.190 (0) Table wp_25apjn_wfLocs: Total expected rows (approximate): 0
+0129.191 (0) Table wp_25apjn_wfLocs: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=720) in 0.00 seconds
+0129.197 (0) Table wp_25apjn_wfLocs: finishing file(s) (2, 0.4 KB)
+0129.206 (0) Table wp_25apjn_wfLogins: Total expected rows (approximate): 2000
+0129.252 (0) Table wp_25apjn_wfLogins: Rows added in this batch (next record: 50447): 2000 (uncompressed bytes in this segment=468187) in 0.05 seconds
+0129.263 (0) Table wp_25apjn_wfLogins: finishing file(s) (2, 43.7 KB)
+0129.276 (0) Table wp_25apjn_wfNotifications: Total expected rows (approximate): 259
+0129.282 (0) Table wp_25apjn_wfNotifications: Rows added in this batch (next record: 1000): 259 (uncompressed bytes in this segment=57611) in 0.01 seconds
+0129.286 (0) Table wp_25apjn_wfNotifications: finishing file(s) (2, 7.3 KB)
+0129.298 (0) Table wp_25apjn_wfPendingIssues: Total expected rows (via COUNT): 0
+0129.299 (0) Table wp_25apjn_wfPendingIssues: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=876) in 0.01 seconds
+0129.304 (0) Table wp_25apjn_wfPendingIssues: finishing file(s) (2, 0.4 KB)
+0129.316 (0) Table wp_25apjn_wfReverseCache: Total expected rows (approximate): 0
+0129.317 (0) Table wp_25apjn_wfReverseCache: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=537) in 0.00 seconds
+0129.323 (0) Table wp_25apjn_wfReverseCache: finishing file(s) (2, 0.3 KB)
+0129.336 (0) Table wp_25apjn_wfSNIPCache: Total expected rows (via COUNT): 0
+0129.338 (0) Table wp_25apjn_wfSNIPCache: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=756) in 0.01 seconds
+0129.342 (0) Table wp_25apjn_wfSNIPCache: finishing file(s) (2, 0.4 KB)
+0129.354 (0) Table wp_25apjn_wfSecurityEvents: Total expected rows (via COUNT): 0
+0129.355 (0) Table wp_25apjn_wfSecurityEvents: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=719) in 0.01 seconds
+0129.360 (0) Table wp_25apjn_wfSecurityEvents: finishing file(s) (2, 0.4 KB)
+0129.369 (0) Table wp_25apjn_wfStatus: Total expected rows (via COUNT): 945
+0129.383 (0) Table wp_25apjn_wfStatus: Rows added in this batch (next record: 328327): 945 (uncompressed bytes in this segment=99806) in 0.02 seconds
+0129.388 (0) Table wp_25apjn_wfStatus: finishing file(s) (2, 14.6 KB)
+0129.397 (0) Table wp_25apjn_wfTrafficRates: Total expected rows (approximate): 0
+0129.399 (0) Table wp_25apjn_wfTrafficRates: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=603) in 0.00 seconds
+0129.403 (0) Table wp_25apjn_wfTrafficRates: finishing file(s) (2, 0.3 KB)
+0129.415 (0) Table wp_25apjn_wfWafFailures: Total expected rows (via COUNT): 0
+0129.417 (0) Table wp_25apjn_wfWafFailures: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=564) in 0.01 seconds
+0129.421 (0) Table wp_25apjn_wfWafFailures: finishing file(s) (2, 0.3 KB)
+0129.432 (0) Table wp_25apjn_wfls_2fa_secrets: Total expected rows (via COUNT): 0
+0129.433 (0) Table wp_25apjn_wfls_2fa_secrets: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=710) in 0.01 seconds
+0129.443 (0) Table wp_25apjn_wfls_2fa_secrets: finishing file(s) (2, 0.4 KB)
+0129.453 (0) Table wp_25apjn_wfls_role_counts: Total expected rows (approximate): 0
+0129.457 (0) Table wp_25apjn_wfls_role_counts: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=616) in 0.01 seconds
+0129.462 (0) Table wp_25apjn_wfls_role_counts: finishing file(s) (2, 0.4 KB)
+0129.470 (0) Table wp_25apjn_wfls_settings: Total expected rows (approximate): 30
+0129.471 (0) Table wp_25apjn_wfls_settings: Rows added in this batch (next record: 1000): 30 (uncompressed bytes in this segment=2103) in 0.00 seconds
+0129.476 (0) Table wp_25apjn_wfls_settings: finishing file(s) (2, 0.9 KB)
+0129.477 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_options.table.tmpr2871764.gz (1/57/fopen): adding to final database dump
+0129.478 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_options.table.gz (2/57/fopen): adding to final database dump
+0129.479 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_users.table.tmpr3.gz (3/57/fopen): adding to final database dump
+0129.480 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_users.table.gz (4/57/fopen): adding to final database dump
+0129.481 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_usermeta.table.tmpr117.gz (5/57/fopen): adding to final database dump
+0129.482 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_usermeta.table.gz (6/57/fopen): adding to final database dump
+0129.482 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_actionscheduler_actions.table.tmpr149849.gz (7/57/fopen): adding to final database dump
+0129.483 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_actionscheduler_actions.table.gz (8/57/fopen): adding to final database dump
+0129.484 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_actionscheduler_claims.table.tmpr121133.gz (9/57/fopen): adding to final database dump
+0129.485 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_actionscheduler_claims.table.gz (10/57/fopen): adding to final database dump
+0129.485 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_actionscheduler_groups.table.tmpr4.gz (11/57/fopen): adding to final database dump
+0129.486 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_actionscheduler_groups.table.gz (12/57/fopen): adding to final database dump
+0129.487 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_actionscheduler_logs.table.gz (13/57/fopen): adding to final database dump
+0129.492 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_commentmeta.table.tmpr8.gz (14/57/fopen): adding to final database dump
+0129.493 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_commentmeta.table.gz (15/57/fopen): adding to final database dump
+0129.494 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_comments.table.tmpr3.gz (16/57/fopen): adding to final database dump
+0129.495 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_comments.table.gz (17/57/fopen): adding to final database dump
+0129.495 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_links.table.tmpr8.gz (18/57/fopen): adding to final database dump
+0129.496 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_links.table.gz (19/57/fopen): adding to final database dump
+0129.497 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_postmeta.table.tmpr11244.gz (20/57/fopen): adding to final database dump
+0129.498 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_postmeta.table.gz (21/57/fopen): adding to final database dump
+0129.499 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_posts.table.tmpr1432.gz (22/57/fopen): adding to final database dump
+0129.501 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_posts.table.gz (23/57/fopen): adding to final database dump
+0129.501 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_term_relationships.table.tmpr100001.gz (24/57/fopen): adding to final database dump
+0129.502 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_term_relationships.table.gz (25/57/fopen): adding to final database dump
+0129.504 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_term_taxonomy.table.tmpr23.gz (26/57/fopen): adding to final database dump
+0129.505 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_term_taxonomy.table.gz (27/57/fopen): adding to final database dump
+0129.505 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_termmeta.table.tmpr0.gz (28/57/fopen): adding to final database dump
+0129.506 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_termmeta.table.gz (29/57/fopen): adding to final database dump
+0129.507 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_terms.table.tmpr23.gz (30/57/fopen): adding to final database dump
+0129.508 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_terms.table.gz (31/57/fopen): adding to final database dump
+0129.508 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_aioseo_ai_insights_keyword_reports.table.tmpr0.gz (32/57/fopen): adding to final database dump
+0129.509 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_aioseo_ai_insights_keyword_reports.table.gz (33/57/fopen): adding to final database dump
+0129.510 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_aioseo_cache.table.tmpr23032.gz (34/57/fopen): adding to final database dump
+0129.511 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_aioseo_cache.table.gz (35/57/fopen): adding to final database dump
+0129.512 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_aioseo_crawl_cleanup_blocked_args.table.tmpr0.gz (36/57/fopen): adding to final database dump
+0129.513 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_aioseo_crawl_cleanup_blocked_args.table.gz (37/57/fopen): adding to final database dump
+0129.516 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_aioseo_crawl_cleanup_logs.table.tmpr0.gz (38/57/fopen): adding to final database dump
+0129.517 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_aioseo_crawl_cleanup_logs.table.gz (39/57/fopen): adding to final database dump
+0129.518 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_aioseo_notifications.table.tmpr94.gz (40/57/fopen): adding to final database dump
+0129.530 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_aioseo_notifications.table.gz (41/57/fopen): adding to final database dump
+0129.533 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_aioseo_posts.table.tmpr324.gz (42/57/fopen): adding to final database dump
+0129.534 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_aioseo_posts.table.gz (43/57/fopen): adding to final database dump
+0129.538 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_aioseo_seo_analyzer_results.table.tmpr0.gz (44/57/fopen): adding to final database dump
+0129.539 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_aioseo_seo_analyzer_results.table.gz (45/57/fopen): adding to final database dump
+0129.540 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_aioseo_writing_assistant_keywords.table.tmpr0.gz (46/57/fopen): adding to final database dump
+0129.541 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_aioseo_writing_assistant_keywords.table.gz (47/57/fopen): adding to final database dump
+0129.541 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_aioseo_writing_assistant_posts.table.tmpr0.gz (48/57/fopen): adding to final database dump
+0129.542 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_aioseo_writing_assistant_posts.table.gz (49/57/fopen): adding to final database dump
+0129.543 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_cntctfrm_field.table.tmpr15.gz (50/57/fopen): adding to final database dump
+0129.544 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_cntctfrm_field.table.gz (51/57/fopen): adding to final database dump
+0129.545 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_mainwp_child_changes_logs.table.tmpr52893.gz (52/57/fopen): adding to final database dump
+0129.547 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_mainwp_child_changes_logs.table.gz (53/57/fopen): adding to final database dump
+0129.547 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_mainwp_child_changes_meta.table.gz (54/57/fopen): adding to final database dump
+0129.551 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_ngg_album.table.tmpr0.gz (55/57/fopen): adding to final database dump
+0129.553 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_ngg_album.table.gz (56/57/fopen): adding to final database dump
+0129.554 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_ngg_gallery.table.tmpr18.gz (57/57/fopen): adding to final database dump
+0129.555 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_ngg_gallery.table.gz (58/57/fopen): adding to final database dump
+0129.560 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_ngg_pictures.table.tmpr457.gz (59/57/fopen): adding to final database dump
+0129.563 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_ngg_pictures.table.gz (60/57/fopen): adding to final database dump
+0129.564 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_smush_dir_images.table.tmpr780.gz (61/57/fopen): adding to final database dump
+0129.569 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_smush_dir_images.table.gz (62/57/fopen): adding to final database dump
+0129.570 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfAuditEvents.table.tmpr0.gz (63/57/fopen): adding to final database dump
+0129.571 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfAuditEvents.table.gz (64/57/fopen): adding to final database dump
+0129.572 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfBlockedIPLog.table.tmpr1001.gz (65/57/fopen): adding to final database dump
+0129.573 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfBlockedIPLog.table.gz (66/57/fopen): adding to final database dump
+0129.574 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfBlocks7.table.tmpr155379.gz (67/57/fopen): adding to final database dump
+0129.574 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfBlocks7.table.gz (68/57/fopen): adding to final database dump
+0129.575 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfConfig.table.tmpr1001.gz (69/57/fopen): adding to final database dump
+0129.584 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfConfig.table.gz (70/57/fopen): adding to final database dump
+0129.586 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfCrawlers.table.tmpr1.gz (71/57/fopen): adding to final database dump
+0129.587 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfCrawlers.table.gz (72/57/fopen): adding to final database dump
+0129.588 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfFileChanges.table.tmpr1.gz (73/57/fopen): adding to final database dump
+0129.589 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfFileChanges.table.gz (74/57/fopen): adding to final database dump
+0129.590 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfFileMods.table.gz (75/57/fopen): adding to final database dump
+0129.601 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfHits.table.tmpr1565526.gz (76/57/fopen): adding to final database dump
+0129.604 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfHits.table.gz (77/57/fopen): adding to final database dump
+0129.605 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfHoover.table.tmpr0.gz (78/57/fopen): adding to final database dump
+0129.606 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfHoover.table.gz (79/57/fopen): adding to final database dump
+0129.606 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfIssues.table.tmpr11106.gz (80/57/fopen): adding to final database dump
+0129.607 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfIssues.table.gz (81/57/fopen): adding to final database dump
+0129.608 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfKnownFileList.table.gz (82/57/fopen): adding to final database dump
+0129.611 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfLiveTrafficHuman.table.tmpr1001.gz (83/57/fopen): adding to final database dump
+0129.612 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfLiveTrafficHuman.table.gz (84/57/fopen): adding to final database dump
+0129.612 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfLocs.table.tmpr1.gz (85/57/fopen): adding to final database dump
+0129.613 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfLocs.table.gz (86/57/fopen): adding to final database dump
+0129.614 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfLogins.table.tmpr50448.gz (87/57/fopen): adding to final database dump
+0129.615 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfLogins.table.gz (88/57/fopen): adding to final database dump
+0129.616 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfNotifications.table.tmpr1001.gz (89/57/fopen): adding to final database dump
+0129.617 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfNotifications.table.gz (90/57/fopen): adding to final database dump
+0129.618 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfPendingIssues.table.tmpr0.gz (91/57/fopen): adding to final database dump
+0129.619 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfPendingIssues.table.gz (92/57/fopen): adding to final database dump
+0129.620 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfReverseCache.table.tmpr1.gz (93/57/fopen): adding to final database dump
+0129.621 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfReverseCache.table.gz (94/57/fopen): adding to final database dump
+0129.621 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfSNIPCache.table.tmpr0.gz (95/57/fopen): adding to final database dump
+0129.622 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfSNIPCache.table.gz (96/57/fopen): adding to final database dump
+0129.623 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfSecurityEvents.table.tmpr0.gz (97/57/fopen): adding to final database dump
+0129.624 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfSecurityEvents.table.gz (98/57/fopen): adding to final database dump
+0129.625 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfStatus.table.tmpr328328.gz (99/57/fopen): adding to final database dump
+0129.628 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfStatus.table.gz (100/57/fopen): adding to final database dump
+0129.629 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfTrafficRates.table.tmpr1.gz (101/57/fopen): adding to final database dump
+0129.630 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfTrafficRates.table.gz (102/57/fopen): adding to final database dump
+0129.631 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfWafFailures.table.tmpr0.gz (103/57/fopen): adding to final database dump
+0129.632 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfWafFailures.table.gz (104/57/fopen): adding to final database dump
+0129.633 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfls_2fa_secrets.table.tmpr0.gz (105/57/fopen): adding to final database dump
+0129.634 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfls_2fa_secrets.table.gz (106/57/fopen): adding to final database dump
+0129.634 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfls_role_counts.table.tmpr1.gz (107/57/fopen): adding to final database dump
+0129.635 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfls_role_counts.table.gz (108/57/fopen): adding to final database dump
+0129.636 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfls_settings.table.tmpr1001.gz (109/57/fopen): adding to final database dump
+0129.637 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db-table-wp_25apjn_wfls_settings.table.gz (110/57/fopen): adding to final database dump
+0129.650 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db.gz: finished writing out complete database file (4331.2 KB)
+0129.703 (0) Total database tables backed up: 57 (backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db.gz, size: 4435267, sha1: ad35dd187567b0ded56e6eb04f689dafaa4f0e34, sha256: dbe2cfb922591b3135751e887358410fd300cf75a39487d5b6bbce30b7d31b4e)
+0129.720 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip: plugins: This file has already been successfully uploaded
+0129.722 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-themes.zip: themes: This file has already been successfully uploaded
+0129.723 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip: uploads: This file has already been successfully uploaded
+0129.724 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-others.zip: others: This file has already been successfully uploaded
+0129.726 (0) backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db.gz: db: This file has not yet been successfully uploaded: will queue
+0129.727 (0) Saving backup history. Total backup size: 728.2 MB
+0129.733 (0) Requesting upload of the files that have not yet been successfully uploaded (1)
+0129.738 (0) Cloud backup selection (1/1): dreamobjects with instance (1/1) (last)
+0129.740 (0) Beginning dispatch of backup to remote (dreamobjects) (instance identifier s-1f55a6a76b3296c69634839725065079)
+0129.741 (0) Set endpoint (UpdraftPlus_S3): s3.us-east-005.dream.io
+0129.780 (0) DreamObjects: upload (us-east-005): backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db.gz (chunks: 1) -> dreamobjects://backups-7508/casaverdepucon.com/backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db.gz
+0130.686 (0) DreamObjects: regular upload: success
+0130.689 (0) Recording as successfully uploaded: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db.gz
+0130.722 (0) Deleting local file: backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-db.gz: OK
+0130.735 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=4, retain_db=4
+0130.737 (0) Number of backup sets in history: 5; groups (db): 1
+0130.737 (0) Examining (for databases) backup set with group_id=0, nonce=054beecc16a4, datestamp=1776825139 (Apr 22 2026 02:32:19)
+0130.738 (0) This backup set is the backup set just made, so will not be deleted.
+0130.738 (0) Examining (for databases) backup set with group_id=0, nonce=ed1ed5d624b5, datestamp=1774233140 (Mar 23 2026 02:32:20)
+0130.738 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0130.739 (0) Examining (for databases) backup set with group_id=0, nonce=226e1296364f, datestamp=1771641223 (Feb 21 2026 02:33:43)
+0130.739 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0130.739 (0) Examining (for databases) backup set with group_id=0, nonce=fe0dad883dba, datestamp=1769049667 (Jan 22 2026 02:41:07)
+0130.739 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0130.739 (0) Examining (for databases) backup set with group_id=0, nonce=8742ee51cd74, datestamp=1766457516 (Dec 23 2025 02:38:36)
+0130.739 (0) 1766457516: db: this set includes a database (backup_2025-12-22-2338_CasaVerdePucn_8742ee51cd74-db.gz); db count is now 4
+0130.739 (0) 1766457516: db: over retain limit (4); will delete this database
+0130.739 (0) DreamObjects: Delete remote: bucket=backups-7508, URI=casaverdepucon.com/backup_2025-12-22-2338_CasaVerdePucn_8742ee51cd74-db.gz
+0130.804 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0130.805 (0) Number of backup sets in history: 5; groups (files): 1
+0130.806 (0) Examining (for files) backup set with nonce=054beecc16a4, datestamp=1776825139 (Apr 22 2026 02:32:19)
+0130.806 (0) This backup set is the backup set just made, so will not be deleted.
+0130.807 (0) This backup set is the backup set just made, so will not be deleted.
+0130.807 (0) This backup set is the backup set just made, so will not be deleted.
+0130.807 (0) This backup set is the backup set just made, so will not be deleted.
+0130.807 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0130.807 (0) Examining (for files) backup set with nonce=ed1ed5d624b5, datestamp=1774233140 (Mar 23 2026 02:32:20)
+0130.807 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0130.807 (0) Examining (for files) backup set with nonce=226e1296364f, datestamp=1771641223 (Feb 21 2026 02:33:43)
+0130.807 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0130.807 (0) Examining (for files) backup set with nonce=fe0dad883dba, datestamp=1769049667 (Jan 22 2026 02:41:07)
+0130.807 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0130.808 (0) Examining (for files) backup set with nonce=8742ee51cd74, datestamp=1766457516 (Dec 23 2025 02:38:36)
+0130.808 (0) plugins: over retain limit (4); will delete this file entity
+0130.808 (0) themes: over retain limit (4); will delete this file entity
+0130.808 (0) uploads: over retain limit (4); will delete this file entity
+0130.808 (0) others: over retain limit (4); will delete this file entity
+0130.808 (0) DreamObjects: Delete remote: bucket=backups-7508, URI=casaverdepucon.com/backup_2025-12-22-2338_CasaVerdePucn_8742ee51cd74-plugins.zip
+0130.853 (0) DreamObjects: Delete remote: bucket=backups-7508, URI=casaverdepucon.com/backup_2025-12-22-2338_CasaVerdePucn_8742ee51cd74-themes.zip
+0130.898 (0) DreamObjects: Delete remote: bucket=backups-7508, URI=casaverdepucon.com/backup_2025-12-22-2338_CasaVerdePucn_8742ee51cd74-uploads.zip
+0130.945 (0) DreamObjects: Delete remote: bucket=backups-7508, URI=casaverdepucon.com/backup_2025-12-22-2338_CasaVerdePucn_8742ee51cd74-others.zip
+0130.995 (0) This backup set is now empty; will remove from history
+0130.996 (0) Corresponding log file (log.8742ee51cd74.txt) not found - must have already been deleted
+0130.996 (0) Retain: saving new backup history (sets now: 4) and finishing retain operation
+0131.001 (0) Resume backup (054beecc16a4, 0): finish run
+0131.004 (0) Decremented the semaphore (fd) by 1
+0131.006 (0) Semaphore (fd) unlocked
+0131.007 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0131.011 (0) The backup succeeded and is now complete
+0131.013 (0) Deleting zip manifest (backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-plugins.zip.list.tmp)
+0131.014 (0) Deleting zip manifest (backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-themes.zip.list.tmp)
+0131.016 (0) Deleting zip manifest (backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-uploads.zip.list.tmp)
+0131.019 (0) Deleting zip manifest (backup_2026-04-21-2332_CasaVerdePucn_054beecc16a4-others.zip.list.tmp)
+0131.020 (0) No email will/can be sent - the user has not configured an email address.
+0131.021 (0) La copia de seguridad se ha realizado correctamente y se ha completado
