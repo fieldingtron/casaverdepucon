@@ -70,4 +70,6 @@ set_theme_mod("nav_menu_locations", $locations);
 
 "$WP" rewrite flush >/dev/null || true
 
+"$PROJECT_DIR/scripts/optimize-db.sh"
+
 echo "Applied local CVP overrides."

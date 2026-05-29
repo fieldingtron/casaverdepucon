@@ -51,6 +51,40 @@ Never call `wp` directly on the host machine.
 - Rebuilds Primary nav menu from published pages (excludes page 127; renames page 21 to "Inicio")
 - Patches contact page (post ID 52) with local contact text
 - Flushes rewrite rules
+- Runs `scripts/optimize-db.sh` to trim dead-plugin data and optimize tables
+
+## Local Database Optimization
+
+`scripts/optimize-db.sh` runs automatically via `apply-local-overrides.sh` and can also be run standalone:
+
+```bash
+./scripts/optimize-db.sh
+```
+
+It truncates tables from plugins that are deleted locally (Wordfence, MainWP child, Smush), clears ActionScheduler logs and AIOSEO notifications, then runs `OPTIMIZE TABLE` on all tables. Saves ~25 MB on a fresh import.
+
+## Production Database Maintenance
+
+The live server DB (`casaverdepucon_com_1` on DreamHost shared hosting) was cleaned on 2026-05-29:
+
+- Deleted 32,151 ActionScheduler log rows older than 90 days (7.9 MB → 192 KB)
+- Deleted 107 post revisions
+- Ran `OPTIMIZE TABLE` on all 57 tables
+- Total DB reduced from ~32.7 MB to ~22.8 MB
+
+**Pending setup on live server** (DreamHost panel → Goodies → Cron Jobs):
+1. WP-Cron replacement — every 10 minutes:
+   ```
+   /usr/bin/wp --path=/home/dh_g8vmkg/casaverdepucon.com cron event run --due-now --quiet
+   ```
+   Also add to `wp-config.php`: `define('DISABLE_WP_CRON', true);`
+
+2. Monthly DB cleanup — 3am on the 1st:
+   ```
+   /usr/bin/wp --path=/home/dh_g8vmkg/casaverdepucon.com db query "DELETE FROM wp_25apjn_actionscheduler_logs WHERE log_date_gmt < DATE_SUB(NOW(), INTERVAL 90 DAY);" --quiet
+   ```
+
+Recommended plugin for ongoing automated cleanup: **Advanced Database Cleaner** (free, 4.9★, updated May 2026) — install via Plugins → Add New in WP admin.
 
 ## Environment
 
